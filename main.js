@@ -235,6 +235,7 @@ function mostrarPintura() {
       circle.classList.add("hidden");
     }
   }
+  renderizacaoPorContaDeMudancaDeTela = false;
 }
 
 function mostrarPinturaCompleta() {
