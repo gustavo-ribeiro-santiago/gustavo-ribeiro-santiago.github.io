@@ -334,6 +334,7 @@ function adicionarBotaoProximaRodada() {
 function iniciarRodada() {
   if (conferirSeJaForamTodasAsPinturas() === true) {
     terminarJogo();
+    return ;
   }
   //selecionar pintura atual:
   for (let i = 0; i < 1; ) {
@@ -382,7 +383,17 @@ function terminarJogo() {
   let popUp = document.createElement("div");
   popUp.id = "popUpFimDoJogo";
   document.getElementById("corpoSite").appendChild(popUp);
-  popUp.innerText = "Congratulations! You finished the game!";
+  let parabensTitulo = document.createElement("div");
+  popUp.appendChild(parabensTitulo);
+  parabensTitulo.innerText = `Congratulations! You finished the game!
+  Your total score was:` 
+  let scoreFinal = document.createElement("div");
+  scoreFinal.id = "scoreFinal";
+  document.getElementById("popUpFimDoJogo").appendChild(scoreFinal);
+  scoreFinal.innerText = `${scoreAtual} points.`
+  let compartilheOSeuScore = document.createElement("div");
+  document.getElementById("popUpFimDoJogo").appendChild(compartilheOSeuScore);
+  compartilheOSeuScore.innerText =  `Take a printscreen of this screen to show off your art knowledge to your friends.`;
 }
 
 iniciarRodada();
