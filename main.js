@@ -305,7 +305,11 @@ function mostrarResolucao(acerto = true) {
   Painted in ${pinturaRodadaAtual.ano}. 
   ${pinturaRodadaAtual.descricao} 
   For more information, visit the Wikipedia article at: 
-  ${pinturaRodadaAtual.wikipediaLink}`;
+  `;
+  let wikipediaLinkHTML = document.createElement("a");
+  conteudoResolucaoHTML.appendChild(wikipediaLinkHTML);
+  wikipediaLinkHTML.innerText = pinturaRodadaAtual.wikipediaLink;
+  wikipediaLinkHTML.href = pinturaRodadaAtual.wikipediaLink;
   qtdCliquesAteAgora = qtdCliquesAtePinturaCompleta;
   mostrarPinturaCompleta();
   adicionarBotaoProximaRodada();
