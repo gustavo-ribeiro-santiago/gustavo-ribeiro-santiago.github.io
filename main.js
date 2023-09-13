@@ -115,6 +115,8 @@ var qtdCliquesAteAgora = 0; //quantidade de cliques já realizados para a mostra
 var qtdCliquesAtePinturaCompleta = 5; //quantidade de cliques até a pintura ser totalmente exibida
 var renderizacaoPorContaDeMudancaDeTela = false; //motivo de renderização
 var pinturasRodadasPassadas = []; //array para guardar pinturas que já apareceram em rodadas passadas
+var scorePotencialDaRodada = 0; //score potencial da rodada atual
+var scoreAtual = 0; //score atual acumulado do jogador
 
 function adicionarOpcoesDeResposta(pintura) {
   let opcoesDeResposta = criarListaDeOpcoesResposta();
@@ -237,6 +239,7 @@ function mostrarPintura() {
     }
   }
   renderizacaoPorContaDeMudancaDeTela = false;
+  atualizarScore();
 }
 
 function mostrarPinturaCompleta() {
@@ -279,6 +282,7 @@ function mostrarResolucao(acerto = true) {
     tituloRespostaCorreta.id = "tituloRespostaCorreta";
     document.getElementById("resolucao").appendChild(tituloRespostaCorreta);
     tituloRespostaCorreta.innerText = `Correct Answer!`;
+    scoreAtual += scorePotencialDaRodada;
   } else {
     //Mostrar: 'Wrong Answer! The correct answer is:'. ('Wrong Answer' in red):
     let conteinerRespostaErrada = document.createElement("div");
@@ -296,6 +300,7 @@ function mostrarResolucao(acerto = true) {
       .getElementById("conteinerRespostaErrada")
       .appendChild(respostaCorretaE);
   }
+  atualizarScore();
   //Mostrar nome e história da pintura:
   let tituloResolucaoHTML = document.createElement("h2");
   tituloResolucaoHTML.innerText = `"${pinturaRodadaAtual.nome}"
@@ -348,6 +353,8 @@ function iniciarRodada() {
   //adicionar itens da nova rodada:
   pinturaElementoHTML = adicionarPintura(pinturaRodadaAtual);
   adicionarOpcoesDeResposta(pinturaRodadaAtual);
+  scorePotencialDaRodada = 1250;
+  atualizarScore();
 }
 
 function conferirSeJaForamTodasAsPinturas() {
@@ -358,11 +365,24 @@ function conferirSeJaForamTodasAsPinturas() {
   }
 }
 
+function atualizarScore() {
+  scorePotencialDaRodada = 1250 - qtdCliquesAteAgora * 250;
+  if (document.body.contains(document.getElementById("score"))) {
+    scoreElementoHTML = document.getElementById("score");
+  } else {
+    scoreElementoHTML = document.createElement("div");
+    scoreElementoHTML.id = "score";
+    document.getElementById("resolucao").appendChild(scoreElementoHTML);
+  }
+  scoreElementoHTML.innerText = `Potencial score for this round: ${scorePotencialDaRodada}
+  Your score so far: ${scoreAtual}`;
+}
+
 function terminarJogo() {
   let popUp = document.createElement("div");
   popUp.id = "popUpFimDoJogo";
-  document.getElementById('corpoSite').appendChild(popUp);
-  popUp.innerText = "Congratulations! You finished the game!"
+  document.getElementById("corpoSite").appendChild(popUp);
+  popUp.innerText = "Congratulations! You finished the game!";
 }
 
 iniciarRodada();
