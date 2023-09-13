@@ -112,7 +112,7 @@ var pinturas = [
 var circlesIdsArray = []; //a array para os ids dos círculos criados
 var qtdCirculosTotal = 0; //quantidade total de círculos utilizados para encobrir a imagem
 var qtdCliquesAteAgora = 0; //quantidade de cliques já realizados para a mostrar a pintura nesta fase
-var qtdCliquesAtePinturaCompleta = 6; //quantidade de cliques até a pintura ser totalmente exibida
+var qtdCliquesAtePinturaCompleta = 5; //quantidade de cliques até a pintura ser totalmente exibida
 var renderizacaoPorContaDeMudancaDeTela = false; //motivo de renderização
 var pinturasRodadasPassadas = []; //array para guardar pinturas que já apareceram em rodadas passadas
 
@@ -213,6 +213,7 @@ function mostrarPintura() {
   //Esta função mostra a pintura pouco a pouco escondendo os círculos brancos
   qtdCliquesAteAgora++;
   console.log(qtdCliquesAteAgora);
+  console.log(renderizacaoPorContaDeMudancaDeTela);
   if (qtdCliquesAteAgora > qtdCliquesAtePinturaCompleta) {
     return;
   } else if (qtdCliquesAteAgora === qtdCliquesAtePinturaCompleta) {
