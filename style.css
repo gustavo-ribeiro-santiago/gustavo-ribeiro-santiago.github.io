@@ -1,0 +1,134 @@
+h1 {
+    font-family: 'Calibri, sans-serif';
+    font-size: x-large;
+
+}
+
+h2 {
+    color: rgb(5, 51, 2);
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    display: block;
+    font-size: large;
+    margin-top: 1px;
+    margin-bottom: 5px;
+    margin-left: 1px;
+    margin-right: 1px;
+    font-weight: bold;
+}
+
+#tituloRespostaCorreta {
+    margin-top: 3px;
+    color: green;
+}
+
+#conteinerRespostaErrada {
+    margin-top: 3px;
+    display: flex;
+    gap: 3px;
+    justify-content: center;
+}
+
+#tituloRespostaErrada {
+    color: red;
+    /* text-align: left; */
+}
+
+#pinturaConteiner{
+    position: relative;
+    width: 70%;
+}
+
+img {
+    width: 100%;
+    z-index: 1;
+}
+
+#opcoesResposta {
+    z-index: 50;
+    flex-grow: 2;
+}
+
+#resolucao {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    right: 0px;
+    width: 30%;
+    background-color: #eee;
+    align-content:space-between;
+    place-content: space-between;
+    justify-content: space-evenly;
+    text-align: justify;
+    padding: 5px;
+}
+
+.flex-container {
+    display: flex;
+    /* flex-direction: row; */
+}
+
+input[type="radio"] {
+    display:none;
+}
+
+input[type="radio"] + label {
+    background: #fff;
+    border: solid 2px #000;
+    display:inline-block;
+    padding: 3px;
+    margin: 2px;
+    cursor: pointer;
+}
+
+input[type="radio"] + label:hover {
+    background: #eee;
+}
+
+.botoes {
+    /* color:red */
+    color:black;
+    background-color: white;
+    border-color: black;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 2px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: medium;
+}
+
+.botoes:hover {
+    background-color:gainsboro
+}
+
+/* #botaoProximaRodada {
+    width: 70%;
+} */
+.circles {
+    transition-duration: 5s;
+    background-color:green;
+    z-index: 2;
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background: white;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 2s linear;
+  }
+
+#popUpFimDoJogo {
+    background-color:green;
+    position: absolute;
+    z-index: 5;
+    background-color: white;
+}
