@@ -20,13 +20,13 @@ var pinturas = [
     Guernica was Picasso's response to the bombing of the Basque town of the same name on April 26, 1937 during the Spanish Civil War. Picasso was commissioned by the republican government of Spain to produce a mural painting for the Spanish Pavilion at the World Fair in Paris. Painted in one month - from May to June 1937 - Guernica became the centerpiece of the Spanish pavilion and a sensation at the Fair, but it was consequently banned from exhibition in Spain until military dictator Franco fell from power in 1975.
     Picasso had studied dramatic photographs of bombing published in various periodicals. Despite that, neither the studies nor the finished picture contain a single allusion to a specific event, constituting instead a generic plea against the barbarity and terror of war. The scene depicted in Guernica is a room full of moving, screaming and dying adults, children and animals.
     `,
-    wikipediaLink: "https://en.wikipedia.org/wiki/Nighthawks",
+    wikipediaLink: "https://en.wikipedia.org/wiki/Guernica_(Picasso)",
   },
   {
     nome: "Nighthawks",
     autor: "Edward Hopper",
     ano: 1942,
-    arquivo: "./nighthawks.jpg",
+    arquivo: "./nighthawks_by_edward_hopper_1942.jpg",
     descricao: `
     Edward Hopper said that Nighthawks was inspired by "a restaurant on New York's Greenwich Avenue where two streets meet," but the image, with its carefully constructed composition and lack of narrative, has a timeless quality that transcends its particular locale. One of the best-known images of 20th-century art, the painting depicts an all-night diner in which three customers, all lost in their own thoughts, have congregated. Fluorescent lights had just come into use in the early 1940s, and the all-night diner emits an eerie glow, like a beacon on the dark street corner. Hopper eliminated any reference to an entrance, and the viewer, drawn to the light, is shut out from the scene by a seamless wedge of glass. The four anonymous and uncommunicative night owls seem as separate and remote from the viewer as they are from one another. Reworked and parodied countless times, Nighthawks has become an icon of American culture.
     `,
@@ -54,14 +54,15 @@ var pinturas = [
     wikipediaLink: "https://en.wikipedia.org/wiki/The_Kiss_(Klimt)",
   },
   {
-    nome: "Self Portrait - Time Flies",
-    autor: "Frida Kahlo",
-    ano: 1929,
-    arquivo: "./self-portrait-time-flies-1929.jpg",
+    nome: "Abaporu",
+    autor: "Tarsila do Amaral",
+    ano: 1928,
+    arquivo: "./abaporu.jpg",
     descricao: `
-    Frida Kahlo de Rivera (Spanish pronunciation: [ˈfɾiða ˈkalo]; born Magdalena Carmen Frida Kahlo y Calderón; July 6, 1907 – July 13, 1954) was a Mexican artist who painted many portraits, self-portraits, and works inspired by the nature and artifacts of Mexico. Inspired by the country's popular culture, she employed a naïve folk art style to explore questions of identity, postcolonialism, gender, class, and race in Mexican society.
-    `,
-    wikipediaLink: "https://en.wikipedia.org/wiki/Impression,_Sunrise",
+    Abaporu (from Tupi language "abapor’u", abá (man) + poro (people) + ’u (to eat), lit. 'the man that eats people') is an oil painting on canvas by Brazilian painter Tarsila do Amaral. It was painted as a birthday gift to writer Oswald de Andrade, who was her husband at the time.
+    It is considered the most valuable painting by a Brazilian artist, having reached the value of $1.4 million, paid by Argentine collector Eduardo Costantini in an auction in 1995.[1] It is currently displayed at the Latin American Art Museum of Buenos Aires (Spanish: Museo de Arte Latinoamericano de Buenos Aires, MALBA) in Buenos Aires, Argentina.[2]
+    The composition: one man, the sun and a cactus – inspired Oswald de Andrade to write the Manifesto Antropófago and consequently create the Anthropophagic Movement, intended to "swallow" foreign culture and turn it into something culturally Brazilian.`,
+    wikipediaLink: "https://en.wikipedia.org/wiki/Abaporu",
   },
   {
     nome: "The Last Supper",
@@ -107,7 +108,27 @@ var pinturas = [
     `,
     wikipediaLink: "https://en.wikipedia.org/wiki/The_Starry_Night",
   },
+  {
+    nome: "Dance at Moulin de la Galette",
+    autor: "Pierre-Auguste Renoir",
+    ano: 1876,
+    arquivo: "./ball-at-the-moulin-de-la-galette-1876.jpg",
+    descricao: `Dance at Moulin de la Galette is one of Impressionism’s most highly revered masterpieces. The scene is of a Sunday afternoon at Moulin de la Galette, where Parisians would typically dress up and spend all day dancing, drinking, and eating galettes, or flat cakes. The painting was in the collection of Gustave Caillebotte, but it was claimed by the French government upon his death due to the non payment of death duties. It was later transferred from the Luxembourg Museum, to the Louvre, and then later to the Musee d’Orsay. Its sale price at auction in 2009 was the fifth highest price ever paid for a painting at auction.`,
+    wikipediaLink: "https://en.wikipedia.org/wiki/Bal_du_moulin_de_la_Galette"
+  },
+  {
+    nome: "Boulevard Montmartre Afternoon Sunlight",
+    autor: "Camille Pissarro",
+    ano: 1876,
+    arquivo: "./boulevard-montmartre-afternoon-sunlight-1897.jpg",
+    descricao: `Le Boulevard de Montmartre, Matinée de Printemps is an 1897 oil on canvas painting of Paris' Boulevard Montmartre by the French artist Camille Pissarro.
+    By 1923 it was in the collection of the German industrialist and Holocaust victim Max Silberberg (de). Silberberg was obliged by the ruling Nazi regime to dispose of the work in a forced sale in 1935. It was restituted to his family in 2000 and placed on loan with the Israel Museum until 2013. On 5 February 2014 it was auctioned at Sotheby's, London, for £19,682,500, double its pre-sale estimate.`,
+    wikipediaLink: "https://en.wikipedia.org/wiki/Camille_Pissarro"
+  }
 ];
+
+// Welcome to the Guess the Painting Game! Are you up for a challenge?
+// Try to discover the names and artists of the hidden paintings. Be aware that the more you see from the painting, fewer the points you can score.
 
 var circlesIdsArray = []; //a array para os ids dos círculos criados
 var qtdCirculosTotal = 0; //quantidade total de círculos utilizados para encobrir a imagem
@@ -117,15 +138,14 @@ var renderizacaoPorContaDeMudancaDeTela = false; //motivo de renderização
 var pinturasRodadasPassadas = []; //array para guardar pinturas que já apareceram em rodadas passadas
 var scorePotencialDaRodada = 0; //score potencial da rodada atual
 var scoreAtual = 0; //score atual acumulado do jogador
+var rodadaTerminou = false; //armazena se rodada atual já terminou para inviabilizar cliques
 
 function adicionarOpcoesDeResposta(pintura) {
   let opcoesDeResposta = criarListaDeOpcoesResposta();
-  for (let numeroOpcao = 0; numeroOpcao < 5; numeroOpcao++) {
-    opcoesElementoHTML = document.createElement("input");
-    opcoesElementoHTML.type = "radio";
-    opcoesElementoHTML.id = `opcaoRadio${numeroOpcao}`;
-    opcoesRotuloElementoHTML = document.createElement("label");
-    opcoesRotuloElementoHTML.for = "opcaoRadio";
+  for (let numeroOpcao = 0; numeroOpcao < 6; numeroOpcao++) {
+    opcoesRotuloElementoHTML = document.createElement("button");
+    opcoesRotuloElementoHTML.classList.add("botoes");
+    opcoesRotuloElementoHTML.classList.add("opcoesDeResposta");
     let pinturaOpcao = opcoesDeResposta.sample();
     opcoesDeResposta.splice(opcoesDeResposta.indexOf(pinturaOpcao), 1);
     opcoesRotuloElementoHTML.innerText =
@@ -134,7 +154,6 @@ function adicionarOpcoesDeResposta(pintura) {
     if (numeroOpcao < 4) {
       opcoesRotuloElementoHTML.innerText += ",";
     }
-    document.getElementById("opcoesResposta").appendChild(opcoesElementoHTML);
     document
       .getElementById("opcoesResposta")
       .appendChild(opcoesRotuloElementoHTML);
@@ -146,7 +165,7 @@ function adicionarOpcoesDeResposta(pintura) {
 
 function criarListaDeOpcoesResposta() {
   let listaDeOpcoes = [pinturaRodadaAtual];
-  for (let i = 0; i < 4; ) {
+  for (let i = 0; i < 5; ) {
     pinturaAleatoria = pinturas.sample();
     if (listaDeOpcoes.indexOf(pinturaAleatoria) === -1) {
       listaDeOpcoes[listaDeOpcoes.length] = pinturaAleatoria;
@@ -162,7 +181,8 @@ function adicionarPintura(pintura) {
   pinturaElementoHTML.src = `./assets/${pintura.arquivo}`;
   pinturaElementoHTML.id = "pinturaImagem";
   document.getElementById("pinturaConteiner").appendChild(pinturaElementoHTML);
-  //pinturaElementoHTML.style.width = "70%";
+  document.getElementById("pinturaConteiner").style.width = "100%";
+  document.getElementById("pinturaImagem").style.width = "97%";
   pinturaElementoHTML.onload = function (event) {
     adicionarCirculosBranco(pinturaElementoHTML);
   };
@@ -180,7 +200,7 @@ function adicionarCirculosBranco(pinturaElementoHTML) {
     circlesIdsArray = [];
   }
   //cria os círculos novos:
-  let larguraPintura = 0.7 * window.innerWidth;
+  let larguraPintura = window.innerWidth * 0.95;
   let alturaPintura =
     larguraPintura * (pinturaElementoHTML.height / pinturaElementoHTML.width);
   let qtdCirculosHorizontal = larguraPintura / 30;
@@ -196,7 +216,7 @@ function adicionarCirculosBranco(pinturaElementoHTML) {
       circlesIdsArray.push(`c${i}/${j}`);
       let circle = document.createElement("div");
       circle.style.top = i * 30 - 10 + "px";
-      circle.style.left = j * 30 - 10 + "px";
+      circle.style.left = j * 30 - 35 + "px";
       circle.classList.add("circles");
       circle.id = `c${i}/${j}`;
       document.getElementById("pinturaConteiner").appendChild(circle);
@@ -214,12 +234,11 @@ Array.prototype.sample = function () {
 function mostrarPintura() {
   //Esta função mostra a pintura pouco a pouco escondendo os círculos brancos
   qtdCliquesAteAgora++;
-  console.log(qtdCliquesAteAgora);
-  console.log(renderizacaoPorContaDeMudancaDeTela);
   if (qtdCliquesAteAgora > qtdCliquesAtePinturaCompleta) {
     return;
   } else if (qtdCliquesAteAgora === qtdCliquesAtePinturaCompleta) {
     mostrarPinturaCompleta();
+    atualizarScore();
   } else {
     //esconder mais círculos brancos:
     if (renderizacaoPorContaDeMudancaDeTela === true) {
@@ -229,6 +248,7 @@ function mostrarPintura() {
     } else {
       //esconder apenas mais uma rodada de círculos
       qtdIteracoes = qtdCirculosTotal / qtdCliquesAtePinturaCompleta;
+      atualizarScore();
     }
     for (var i = 0; i < qtdIteracoes; i++) {
       //esconde cada círculo branco:
@@ -239,7 +259,6 @@ function mostrarPintura() {
     }
   }
   renderizacaoPorContaDeMudancaDeTela = false;
-  atualizarScore();
 }
 
 function mostrarPinturaCompleta() {
@@ -268,14 +287,23 @@ function renderizarNovamente(pinturaElementoHTML) {
 }
 
 function conferirResposta(pintura) {
+  if (rodadaTerminou === true) {
+    return;
+  }
   if (pintura.nome === pinturaRodadaAtual.nome) {
     mostrarResolucao();
   } else {
     mostrarResolucao(false);
   }
+  rodadaTerminou = true;
 }
 
 function mostrarResolucao(acerto = true) {
+  document.getElementById("resolucao").innerText = "";
+  document.getElementById("resolucao").style.position = "absolute";
+  document.getElementById("resolucao").style.right = "0%";
+  document.getElementById("pinturaImagem").style.width = "100%";
+  document.getElementById("pinturaConteiner").style.width = "68%";
   if (acerto) {
     //Mostrar: 'Correct Answer!' in green
     let tituloRespostaCorreta = document.createElement("h2");
@@ -332,10 +360,13 @@ function adicionarBotaoProximaRodada() {
 }
 
 function iniciarRodada() {
+  document.getElementById("resolucao").style.position = "fixed";
+  document.getElementById("resolucao").style.right = "-35%";
   if (conferirSeJaForamTodasAsPinturas() === true) {
     terminarJogo();
-    return ;
+    return;
   }
+  rodadaTerminou = false;
   //selecionar pintura atual:
   for (let i = 0; i < 1; ) {
     let pinturaNovaRodada = pinturas.sample();
@@ -349,12 +380,11 @@ function iniciarRodada() {
   if (document.body.contains(document.getElementById("pinturaImagem"))) {
     document.getElementById("pinturaImagem").remove();
   }
-  document.getElementById("resolucao").innerText = "";
   document.getElementById("opcoesResposta").innerText = "";
   //adicionar itens da nova rodada:
   pinturaElementoHTML = adicionarPintura(pinturaRodadaAtual);
   adicionarOpcoesDeResposta(pinturaRodadaAtual);
-  scorePotencialDaRodada = 1250;
+  scorePotencialDaRodada = 1200;
   atualizarScore();
 }
 
@@ -367,16 +397,18 @@ function conferirSeJaForamTodasAsPinturas() {
 }
 
 function atualizarScore() {
-  scorePotencialDaRodada = 1250 - qtdCliquesAteAgora * 250;
+  scorePotencialDaRodada =
+    1200 - Math.min(qtdCliquesAteAgora, qtdCliquesAtePinturaCompleta) * 200;
   if (document.body.contains(document.getElementById("score"))) {
     scoreElementoHTML = document.getElementById("score");
   } else {
     scoreElementoHTML = document.createElement("div");
     scoreElementoHTML.id = "score";
-    document.getElementById("resolucao").appendChild(scoreElementoHTML);
+    document.getElementById("scoreSecao").appendChild(scoreElementoHTML);
   }
   scoreElementoHTML.innerText = `Potencial score for this round: ${scorePotencialDaRodada}
   Your score so far: ${scoreAtual}`;
+  realcarScore();
 }
 
 function terminarJogo() {
@@ -386,18 +418,62 @@ function terminarJogo() {
   let parabensTitulo = document.createElement("div");
   popUp.appendChild(parabensTitulo);
   parabensTitulo.innerText = `Congratulations! You finished the game!
-  Your total score was:` 
+  Your total score was:`;
   let scoreFinal = document.createElement("div");
   scoreFinal.id = "scoreFinal";
   document.getElementById("popUpFimDoJogo").appendChild(scoreFinal);
-  scoreFinal.innerText = `${scoreAtual} points.`
+  scoreFinal.innerText = `${scoreAtual} points.`;
   let compartilheOSeuScore = document.createElement("div");
   document.getElementById("popUpFimDoJogo").appendChild(compartilheOSeuScore);
-  compartilheOSeuScore.innerText =  `Take a printscreen of this screen to show off your art knowledge to your friends.`;
+  compartilheOSeuScore.innerText = `Take a printscreen of this screen to show off your art knowledge to your friends.`;
 }
 
+function mostrarPopUpInicio() {
+  let fundoOfuscado = document.createElement("div");
+  fundoOfuscado.id = "fundoOfuscado";
+  document.getElementById("corpoSite").appendChild(fundoOfuscado);
+  let popUp = document.createElement("div");
+  popUp.id = "popUpInicioDoJogo";
+  document.getElementById("corpoSite").appendChild(popUp);
+  let bemVindoTitulo = document.createElement("div");
+  bemVindoTitulo.innerText = `Welcome to the Guess the Painting Game! 
+  
+  Are you up for a challenge?
+
+  Try to discover the names and artists of the hidden paintings. 
+
+  Be aware that the more you see of the painting, the fewer points you can score.`;
+  popUp.appendChild(bemVindoTitulo);
+  let botaoIniciarJogo = document.createElement("button");
+  botaoIniciarJogo.classList.add("botoes");
+  botaoIniciarJogo.innerText = "Start Game";
+  popUp.appendChild(botaoIniciarJogo);
+  botaoIniciarJogo.addEventListener("click", removerPopUpInicio);
+}
+
+function removerPopUpInicio() {
+  document.getElementById("popUpInicioDoJogo").remove();
+  document.getElementById("fundoOfuscado").remove();
+}
+
+function realcarScore() {
+  document.getElementById("score").style.background = "red";
+  setTimeout(() => document.getElementById("score").style.background = "#ffdf7d", 2000);
+}
+
+mostrarPopUpInicio();
 iniciarRodada();
 adicionarBotaoMostrar();
 window.addEventListener("resize", () =>
   renderizarNovamente(pinturaElementoHTML)
 ); //em caso de mudança do tamanho da tela
+
+function countIntInArray(arr, int) {
+  let result = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === int) {
+      result++;
+    }
+  }
+  return result;
+}

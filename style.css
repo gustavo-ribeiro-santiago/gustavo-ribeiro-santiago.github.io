@@ -1,6 +1,45 @@
+#popUpInicioDoJogo {
+  display: flex;
+  flex-direction: column;
+  background-color: lightgray;
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  padding: 10px;
+  z-index: 10;
+  font-size: large;
+  text-align: center;
+  vertical-align: baseline;
+  justify-content: space-evenly;
+}
+
+#fundoOfuscado {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.67);
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  z-index: 9;
+  backdrop-filter: blur(5px);
+}
+
 h1 {
-  font-family: "Calibri, sans-serif";
+  font-family: "Proxima Nova", Georgia, sans-serif;
   font-size: x-large;
+  margin-top: 20px;
+  display: inline-block;
+  background: white;
+  padding: 5px;
+  z-index: 5;
+}
+
+body {
+  font-family: "Proxima Nova", Georgia, sans-serif;
+  background-color:white;
+  margin: 1%;
 }
 
 h2 {
@@ -17,6 +56,99 @@ h2 {
   font-weight: bold;
 }
 
+#score {
+  top: 0px;
+  text-align: start;
+  margin-bottom: 10px;
+  display: inline-block;
+  background: #ffdf7d;
+  padding: 5px;
+  font-weight: normal;
+}
+
+#pinturaEResolucao {
+  display: flex;
+  transition: 2s;
+}
+
+.botoes {
+  color: black;
+  background-color: white;
+  border-color: black;
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 2px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: medium;
+  font-family: "Proxima Nova", Georgia, sans-serif;
+}
+
+.botoes:hover {
+  background-color: gainsboro;
+}
+
+.opcoesDeResposta {
+  /* text-align: left; */
+  width: 40%;
+  margin-right: 15px;
+}
+
+#opcoesResposta {
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 50;
+  flex-grow: 2;
+}
+
+#botaoShow {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+#pinturaConteiner {
+  position: relative;
+  transition: 2s;
+}
+
+img {
+  z-index: 1;
+  transition: 2s;
+}
+
+.circles {
+  transition-duration: 5s;
+  z-index: 2;
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  /* background-color:rgb(101, 24, 39); */ 
+  background-color:white; 
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
+}
+
+#resolucao {
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+  padding: 10px;
+  width: 30%;
+  background-color: #eee;
+  word-break: break-word;
+  text-align: justify;
+  justify-content: space-evenly;
+  transition: 2s;
+}
+
 #tituloRespostaCorreta {
   margin-top: 3px;
   color: green;
@@ -31,102 +163,10 @@ h2 {
 
 #tituloRespostaErrada {
   color: red;
-  /* text-align: left; */
 }
 
-#pinturaConteiner {
-  position: relative;
-  width: 70%;
-}
-
-img {
-  width: 100%;
-  z-index: 1;
-}
-
-#opcoesResposta {
-  z-index: 50;
-  flex-grow: 2;
-}
-
-#resolucao {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  right: 0px;
-  width: 30%;
-  background-color: #eee;
-  justify-content: space-evenly;
-  text-align: justify;
-  padding: 5px;
-  z-index: 5;
-}
-
-#score {
-  top: 0px;
-  text-align: start;
-}
-
-.flex-container {
-  display: flex;
-  /* flex-direction: row; */
-}
-
-input[type="radio"] {
-  display: none;
-}
-
-input[type="radio"] + label {
-  background: #fff;
-  border: solid 2px #000;
-  display: inline-block;
-  padding: 3px;
-  margin: 2px;
-  cursor: pointer;
-}
-
-input[type="radio"] + label:hover {
-  background: #eee;
-}
-
-.botoes {
-  /* color:red */
-  color: black;
-  background-color: white;
-  border-color: black;
-  cursor: pointer;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin: 2px;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  font-size: medium;
-}
-
-.botoes:hover {
-  background-color: gainsboro;
-}
-
-/* #botaoProximaRodada {
-    width: 70%;
-} */
-.circles {
-  transition-duration: 5s;
-  background-color: green;
-  z-index: 2;
-  position: absolute;
-  height: 60px;
-  width: 60px;
-  border-radius: 50%;
-  background: white;
-}
-
-.hidden {
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s 2s, opacity 2s linear;
+#botaoProximaRodada {
+  margin-top: 25px;
 }
 
 #popUpFimDoJogo {
@@ -147,5 +187,5 @@ input[type="radio"] + label:hover {
 }
 
 #scoreFinal {
-    font-size: x-large;
+  font-size: x-large;
 }
