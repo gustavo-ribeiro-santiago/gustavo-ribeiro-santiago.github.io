@@ -40,6 +40,9 @@ body {
   font-family: "Proxima Nova", Georgia, sans-serif;
   background-color:white;
   margin: 1%;
+  background-image: url("./assets/background.jpg");
+  background-size: cover;
+  background-repeat: repeat;
 }
 
 h2 {
@@ -86,6 +89,7 @@ h2 {
   font-size: medium;
   font-family: "Proxima Nova", Georgia, sans-serif;
   height: 50px;
+  z-index: 3;
 }
 
 .botoes:hover {
@@ -108,6 +112,7 @@ h2 {
 #botaoShow {
   margin-top: 0px;
   margin-bottom: 15px;
+  z-index: 3;
 }
 
 #pinturaConteiner {
@@ -116,13 +121,13 @@ h2 {
 }
 
 img {
-  z-index: 1;
+  z-index: 2;
   transition: 2s;
 }
 
 .circles {
   transition-duration: 5s;
-  z-index: 2;
+  z-index: 3;
   position: absolute;
   height: 60px;
   width: 60px;
