@@ -60,7 +60,7 @@ var pinturas = [
     arquivo: "./abaporu.jpg",
     descricao: `
     Abaporu (from Tupi language "abapor’u", abá (man) + poro (people) + ’u (to eat), lit. 'the man that eats people') is an oil painting on canvas by Brazilian painter Tarsila do Amaral. It was painted as a birthday gift to writer Oswald de Andrade, who was her husband at the time.
-    It is considered the most valuable painting by a Brazilian artist, having reached the value of $1.4 million, paid by Argentine collector Eduardo Costantini in an auction in 1995.[1] It is currently displayed at the Latin American Art Museum of Buenos Aires (Spanish: Museo de Arte Latinoamericano de Buenos Aires, MALBA) in Buenos Aires, Argentina.[2]
+    It is considered the most valuable painting by a Brazilian artist, having reached the value of $1.4 million, paid by Argentine collector Eduardo Costantini in an auction in 1995. It is currently displayed at the Latin American Art Museum of Buenos Aires (Spanish: Museo de Arte Latinoamericano de Buenos Aires, MALBA) in Buenos Aires, Argentina.
     The composition: one man, the sun and a cactus – inspired Oswald de Andrade to write the Manifesto Antropófago and consequently create the Anthropophagic Movement, intended to "swallow" foreign culture and turn it into something culturally Brazilian.`,
     wikipediaLink: "https://en.wikipedia.org/wiki/Abaporu",
   },
@@ -148,7 +148,7 @@ nomesPinturasParaOpcoes = pinturas.concat([
 var circlesIdsArray = []; //a array para os ids dos círculos criados
 var qtdCirculosTotal = 0; //quantidade total de círculos utilizados para encobrir a imagem
 var qtdCliquesAteAgora = 0; //quantidade de cliques já realizados para a mostrar a pintura nesta fase
-var qtdCliquesAtePinturaCompleta = 5; //quantidade de cliques até a pintura ser totalmente exibida
+var qtdCliquesAtePinturaCompleta = 4; //quantidade de cliques até a pintura ser totalmente exibida
 var renderizacaoPorContaDeMudancaDeTela = false; //motivo de renderização
 var pinturasRodadasPassadas = []; //array para guardar pinturas que já apareceram em rodadas passadas
 var scorePotencialDaRodada = 0; //score potencial da rodada atual
@@ -385,7 +385,7 @@ function conferirResposta(pintura) {
 
 function atualizarScore() {
   scorePotencialDaRodada =
-    1200 - Math.min(qtdCliquesAteAgora, qtdCliquesAtePinturaCompleta) * 200;
+    1250 - Math.min(qtdCliquesAteAgora, qtdCliquesAtePinturaCompleta) * 250;
   if (document.body.contains(document.getElementById("score"))) {
     scoreElementoHTML = document.getElementById("score");
   } else {

@@ -134,6 +134,9 @@ img {
   border-radius: 50%;
   /* background-color:rgb(101, 24, 39); */ 
   background-color:white; 
+  background-image: url("./assets/background.jpg");
+  background-size: cover;
+  background-repeat: repeat;
 }
 
 .hidden {
