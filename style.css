@@ -29,7 +29,7 @@
 h1 {
   font-family: "Proxima Nova", Georgia, sans-serif;
   font-size: x-large;
-  margin-top: 20px;
+  margin-top: 15px;
   display: inline-block;
   background: white;
   padding: 5px;
@@ -81,10 +81,11 @@ h2 {
   padding-top: 5px;
   padding-bottom: 5px;
   margin: 2px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   font-size: medium;
   font-family: "Proxima Nova", Georgia, sans-serif;
+  height: 50px;
 }
 
 .botoes:hover {
@@ -105,8 +106,8 @@ h2 {
 }
 
 #botaoShow {
-  margin-top: 5px;
-  margin-bottom: 20px;
+  margin-top: 0px;
+  margin-bottom: 15px;
 }
 
 #pinturaConteiner {

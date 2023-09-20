@@ -113,7 +113,8 @@ var pinturas = [
     autor: "Pierre-Auguste Renoir",
     ano: 1876,
     arquivo: "./ball-at-the-moulin-de-la-galette-1876.jpg",
-    descricao: `Dance at Moulin de la Galette is one of Impressionism’s most highly revered masterpieces. The scene is of a Sunday afternoon at Moulin de la Galette, where Parisians would typically dress up and spend all day dancing, drinking, and eating galettes, or flat cakes. The painting was in the collection of Gustave Caillebotte, but it was claimed by the French government upon his death due to the non payment of death duties. It was later transferred from the Luxembourg Museum, to the Louvre, and then later to the Musee d’Orsay. Its sale price at auction in 2009 was the fifth highest price ever paid for a painting at auction.`,
+    descricao: `
+    Dance at Moulin de la Galette is one of Impressionism’s most highly revered masterpieces. The scene is of a Sunday afternoon at Moulin de la Galette, where Parisians would typically dress up and spend all day dancing, drinking, and eating galettes, or flat cakes. The painting was in the collection of Gustave Caillebotte, but it was claimed by the French government upon his death due to the non payment of death duties. It was later transferred from the Luxembourg Museum, to the Louvre, and then later to the Musee d’Orsay. Its sale price at auction in 2009 was the fifth highest price ever paid for a painting at auction.`,
     wikipediaLink: "https://en.wikipedia.org/wiki/Bal_du_moulin_de_la_Galette"
   },
   {
@@ -121,11 +122,25 @@ var pinturas = [
     autor: "Camille Pissarro",
     ano: 1876,
     arquivo: "./boulevard-montmartre-afternoon-sunlight-1897.jpg",
-    descricao: `Le Boulevard de Montmartre, Matinée de Printemps is an 1897 oil on canvas painting of Paris' Boulevard Montmartre by the French artist Camille Pissarro.
+    descricao: `
+    Le Boulevard de Montmartre, Matinée de Printemps is an 1897 oil on canvas painting of Paris' Boulevard Montmartre by the French artist Camille Pissarro.
     By 1923 it was in the collection of the German industrialist and Holocaust victim Max Silberberg (de). Silberberg was obliged by the ruling Nazi regime to dispose of the work in a forced sale in 1935. It was restituted to his family in 2000 and placed on loan with the Israel Museum until 2013. On 5 February 2014 it was auctioned at Sotheby's, London, for £19,682,500, double its pre-sale estimate.`,
     wikipediaLink: "https://en.wikipedia.org/wiki/Camille_Pissarro"
   }
 ];
+
+nomesPinturasParaOpcoes = pinturas.concat([
+  {nome:"Mona Lisa", autor:"Leonardo da Vinci"},
+  {nome:"Summer", autor:"Francisco Goya"},
+  {nome:"The Two Fridas", autor:"Frida Kahlo"},
+  {nome:"The lovers", autor:"Rene Magritte"},
+  {nome:"Portrait of Adele Bloch-Bauer I", autor:"Gustav Klimt"},
+  {nome:"Dance", autor:"Henri Matisse"},
+  {nome:"Forever Always", autor:"Octavio Ocampo"},
+  {nome:"The Birth of Venus", autor:"Sandro Botticelli"},
+  {nome:"Portrait of Dora Maar", autor:"Pablo Picasso"},
+  {nome:"The Luncheon on the Grass", autor:"Edouard Manet"},
+]);
 
 // Welcome to the Guess the Painting Game! Are you up for a challenge?
 // Try to discover the names and artists of the hidden paintings. Be aware that the more you see from the painting, fewer the points you can score.
@@ -166,9 +181,10 @@ function adicionarOpcoesDeResposta(pintura) {
 function criarListaDeOpcoesResposta() {
   let listaDeOpcoes = [pinturaRodadaAtual];
   for (let i = 0; i < 5; ) {
-    pinturaAleatoria = pinturas.sample();
+    pinturaAleatoria = nomesPinturasParaOpcoes.sample();
     if (listaDeOpcoes.indexOf(pinturaAleatoria) === -1) {
       listaDeOpcoes[listaDeOpcoes.length] = pinturaAleatoria;
+      nomesPinturasParaOpcoes.splice(nomesPinturasParaOpcoes.indexOf(pinturaAleatoria),1);
       i++;
     }
   }
