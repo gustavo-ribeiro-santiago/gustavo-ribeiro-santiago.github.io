@@ -267,20 +267,21 @@ function adicionarPintura(pintura) {
   document.getElementById("pinturaConteiner").appendChild(pinturaElementoHTML);
   document.getElementById("pinturaConteiner").style.width = "100%";
   pinturaElementoHTML.onload = function (event) {
-    console.log (pinturaElementoHTML.height, pinturaElementoHTML.width);
+    console.log(pinturaElementoHTML.height, pinturaElementoHTML.width);
     if (pinturaElementoHTML.height > pinturaElementoHTML.width) {
       document.getElementById("pinturaImagem").style.height = "87%";
     } else {
       document.getElementById("pinturaImagem").style.width = "87%";
     }
-    adicionarCirculosBranco(pinturaElementoHTML);
+    adicionarCirculosBranco();
   };
   qtdCliquesAteAgora = 0;
   return pinturaElementoHTML;
 }
 
-function adicionarCirculosBranco(pinturaElementoHTML) {
+function adicionarCirculosBranco() {
   //Esta função remove os círculos brancos sobrepostos existentes e adiciona novos para esconder a pintura
+  let pinturaElementoHTML = document.getElementById("pinturaImagem");
   const circles = document.getElementsByClassName("circles");
   if (circles.length > 0) {
     for (let i = circles.length - 1; i >= 0; i--) {
@@ -313,9 +314,9 @@ function adicionarCirculosBranco(pinturaElementoHTML) {
     }
   }
   console.log(document.getElementsByClassName("circles").length);
-  mostrarPintura(cliqueBotao = false);
-  mostrarPintura(cliqueBotao = false);
-  mostrarPintura(cliqueBotao = false);
+  mostrarPintura((cliqueBotao = false));
+  mostrarPintura((cliqueBotao = false));
+  mostrarPintura((cliqueBotao = false));
 }
 
 Array.prototype.sample = function () {
@@ -325,6 +326,9 @@ Array.prototype.sample = function () {
 function mostrarPintura(cliqueBotao = true) {
   //Esta função mostra a pintura pouco a pouco escondendo os círculos brancos
   qtdCliquesAteAgora++;
+  console.log("renderizacaoPorContaDeMudancaDeTela: " + renderizacaoPorContaDeMudancaDeTela)
+  console.log("qtdCliquesAteAgora: " + qtdCliquesAteAgora)
+  console.log("qtdCliquesAtePinturaCompleta: " + qtdCliquesAtePinturaCompleta)
   if (qtdCliquesAteAgora > qtdCliquesAtePinturaCompleta) {
     return;
   } else if (qtdCliquesAteAgora === qtdCliquesAtePinturaCompleta) {
@@ -372,10 +376,10 @@ function adicionarBotaoMostrar() {
   ).innerHTML += `<button id="botoes" class="botoes" onclick="mostrarPintura()"> Show more of the painting </button>`;
 }
 
-function renderizarNovamente(pinturaElementoHTML) {
+function renderizarNovamente() {
   qtdCliquesAteAgora--;
   renderizacaoPorContaDeMudancaDeTela = true;
-  adicionarCirculosBranco(pinturaElementoHTML);
+  adicionarCirculosBranco();
 }
 
 function conferirResposta(pintura) {
@@ -496,8 +500,8 @@ mostrarPopUpInicio();
 iniciarRodada();
 adicionarBotaoMostrar();
 window.addEventListener("resize", () =>
-  renderizarNovamente(pinturaElementoHTML)
-); //em caso de mudança do tamanho da tela
+  renderizarNovamente()
+); //em caso de mudança no tamanho da tela
 
 function countIntInArray(arr, int) {
   let result = 0;
@@ -508,4 +512,3 @@ function countIntInArray(arr, int) {
   }
   return result;
 }
-
