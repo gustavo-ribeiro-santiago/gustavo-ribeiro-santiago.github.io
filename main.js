@@ -266,9 +266,13 @@ function adicionarPintura(pintura) {
   pinturaElementoHTML.id = "pinturaImagem";
   document.getElementById("pinturaConteiner").appendChild(pinturaElementoHTML);
   document.getElementById("pinturaConteiner").style.width = "100%";
-  document.getElementById("pinturaImagem").style.width = "87%";
   pinturaElementoHTML.onload = function (event) {
-    console.log (pinturaElementoHTML.height, pinturaElementoHTML.width)
+    console.log (pinturaElementoHTML.height, pinturaElementoHTML.width);
+    if (pinturaElementoHTML.height > pinturaElementoHTML.width) {
+      document.getElementById("pinturaImagem").style.height = "87%";
+    } else {
+      document.getElementById("pinturaImagem").style.width = "87%";
+    }
     adicionarCirculosBranco(pinturaElementoHTML);
   };
   qtdCliquesAteAgora = 0;
