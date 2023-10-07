@@ -268,6 +268,7 @@ function adicionarPintura(pintura) {
   document.getElementById("pinturaConteiner").style.width = "100%";
   document.getElementById("pinturaImagem").style.width = "87%";
   pinturaElementoHTML.onload = function (event) {
+    console.log (pinturaElementoHTML.height, pinturaElementoHTML.width)
     adicionarCirculosBranco(pinturaElementoHTML);
   };
   qtdCliquesAteAgora = 0;
