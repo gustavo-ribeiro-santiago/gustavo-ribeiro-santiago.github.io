@@ -378,6 +378,8 @@ function adicionarBotaoMostrar() {
 
 function renderizarNovamente() {
   qtdCliquesAteAgora--;
+  qtdCliquesAteAgora--;
+  qtdCliquesAteAgora--;
   renderizacaoPorContaDeMudancaDeTela = true;
   adicionarCirculosBranco();
 }
