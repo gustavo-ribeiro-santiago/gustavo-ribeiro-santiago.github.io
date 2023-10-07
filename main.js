@@ -140,20 +140,17 @@ nomesPinturasParaOpcoes = pinturas.concat([
   { nome: "The Birth of Venus", autor: "Sandro Botticelli" },
   { nome: "Portrait of Dora Maar", autor: "Pablo Picasso" },
   { nome: "The Luncheon on the Grass", autor: "Edouard Manet" },
-]);
-
-// Welcome to the Guess the Painting Game! Are you up for a challenge?
-// Try to discover the names and artists of the hidden paintings. Be aware that the more you see from the painting, fewer the points you can score.
+]); // Opções de respostas extras para pinturas que não estão no jogo
 
 var circlesIdsArray = []; //a array para os ids dos círculos criados
 var qtdCirculosTotal = 0; //quantidade total de círculos utilizados para encobrir a imagem
 var qtdCliquesAteAgora = 0; //quantidade de cliques já realizados para a mostrar a pintura nesta fase
 var qtdCliquesAtePinturaCompleta = 6; //quantidade de cliques até a pintura ser totalmente exibida
-var renderizacaoPorContaDeMudancaDeTela = false; //motivo de renderização
+var renderizacaoPorContaDeMudancaDeTela = false; //é uma nova renderização por conta de mudança do tamanho da tela?
 var pinturasRodadasPassadas = []; //array para guardar pinturas que já apareceram em rodadas passadas
 var scorePotencialDaRodada = 0; //score potencial da rodada atual
 var scoreAtual = 0; //score atual acumulado do jogador
-var rodadaTerminou = false; //armazena se rodada atual já terminou para inviabilizar cliques
+var rodadaTerminou = false; //armazena se rodada atual já terminou para inviabilizar cliques em opções de resposta
 
 function mostrarPopUpInicio() {
   let fundoOfuscado = document.createElement("div");
@@ -175,53 +172,51 @@ function mostrarPopUpInicio() {
   botaoIniciarJogo.classList.add("botoes");
   botaoIniciarJogo.innerText = "Start Game";
   popUp.appendChild(botaoIniciarJogo);
-  botaoIniciarJogo.addEventListener("click", removerPopUpInicio);
+  botaoIniciarJogo.addEventListener("click", () => {
+    document.getElementById("popUpInicioDoJogo").remove();
+    document.getElementById("fundoOfuscado").remove();
+  });
 }
 
-function removerPopUpInicio() {
-  document.getElementById("popUpInicioDoJogo").remove();
-  document.getElementById("fundoOfuscado").remove();
-}
+Array.prototype.sample = function () {
+  // método seleciona item aleatório de array
+  return this[Math.floor(Math.random() * this.length)];
+};
 
 function iniciarRodada() {
+  // Esta função confere se todas as pinturas do jogo já apareceram e, se sim, termina o jogo, caso contrário,
+  // seleciona a pintura atual e cria os elementos da nova rodada
   document.getElementById("resolucao").style.position = "fixed";
   document.getElementById("resolucao").style.right = "-35%";
-  if (conferirSeJaForamTodasAsPinturas() === true) {
+  if (pinturasRodadasPassadas.length === pinturas.length) {
     terminarJogo();
     return;
   }
-  rodadaTerminou = false;
+  rodadaTerminou = false; // quando verdadeiro, inviabiliza cliques em opções de resposta
   //selecionar pintura atual:
   for (let i = 0; i < 1; ) {
-    let pinturaNovaRodada = pinturas.sample();
+    let pinturaNovaRodada = pinturas.sample(); // método array.prototype.sample() foi criado para escolher item aleatório de array
     if (pinturasRodadasPassadas.indexOf(pinturaNovaRodada) === -1) {
+      // confere se pintura já foi escolhida em rodadas anteriores
       pinturaRodadaAtual = pinturaNovaRodada;
       i++;
     }
   }
   pinturasRodadasPassadas.push(pinturaRodadaAtual);
-  //resetar tela:
+  //apagar pintura e opções de resposta da rodada passada, se existirem:
   if (document.body.contains(document.getElementById("pinturaImagem"))) {
     document.getElementById("pinturaImagem").remove();
   }
   document.getElementById("opcoesResposta").innerText = "";
-  //adicionar itens da nova rodada:
+  //criar pintura e opções de resposta da nova rodada:
   pinturaElementoHTML = adicionarPintura(pinturaRodadaAtual);
   adicionarOpcoesDeResposta(pinturaRodadaAtual);
-  scorePotencialDaRodada = 1200;
-  atualizarScore();
-}
-
-function conferirSeJaForamTodasAsPinturas() {
-  if (pinturasRodadasPassadas.length === pinturas.length) {
-    return true;
-  } else {
-    return false;
-  }
 }
 
 function adicionarOpcoesDeResposta(pintura) {
+  // criar lista de opções de resposta para a rodada:
   let opcoesDeResposta = criarListaDeOpcoesResposta();
+  // criar elementos para opções de resposta:
   for (let numeroOpcao = 0; numeroOpcao < 6; numeroOpcao++) {
     opcoesRotuloElementoHTML = document.createElement("button");
     opcoesRotuloElementoHTML.classList.add("botoes");
@@ -231,9 +226,6 @@ function adicionarOpcoesDeResposta(pintura) {
     opcoesRotuloElementoHTML.innerText =
       String.fromCharCode("a".charCodeAt(0) + numeroOpcao) +
       `) ${pinturaOpcao.nome} by ${pinturaOpcao.autor}`;
-    if (numeroOpcao < 4) {
-      opcoesRotuloElementoHTML.innerText += ",";
-    }
     document
       .getElementById("opcoesResposta")
       .appendChild(opcoesRotuloElementoHTML);
@@ -244,16 +236,19 @@ function adicionarOpcoesDeResposta(pintura) {
 }
 
 function criarListaDeOpcoesResposta() {
+  // cria uma array com as opções de resposta para a rodada:
   let listaDeOpcoes = [pinturaRodadaAtual];
+  // remover nome da pintura da rodada atual de nomes de pinturas para opções:
   nomesPinturasParaOpcoes.splice(
     nomesPinturasParaOpcoes.indexOf(pinturaRodadaAtual),
     1
-  );
+  ); // nomePinturasParaOpcoes contém os nomes das pinturas do jogo e nomes extras adicionados para uma gama maior de opções
+  // escolhe aleatoriamente mais 5 nomes de pinturas para aparecer nas opções:
   for (let i = 0; i < 5; ) {
     pinturaAleatoria = nomesPinturasParaOpcoes.sample();
-    if (listaDeOpcoes.indexOf(pinturaAleatoria) === -1) {
-      listaDeOpcoes[listaDeOpcoes.length] = pinturaAleatoria;
-      i++;
+    if (listaDeOpcoes.indexOf(pinturaAleatoria) === -1) { 
+      listaDeOpcoes.push(pinturaAleatoria); 
+      i++; 
     }
   }
   return listaDeOpcoes;
@@ -319,16 +314,15 @@ function adicionarCirculosBranco() {
   mostrarPintura((cliqueBotao = false));
 }
 
-Array.prototype.sample = function () {
-  return this[Math.floor(Math.random() * this.length)];
-};
-
 function mostrarPintura(cliqueBotao = true) {
   //Esta função mostra a pintura pouco a pouco escondendo os círculos brancos
   qtdCliquesAteAgora++;
-  console.log("renderizacaoPorContaDeMudancaDeTela: " + renderizacaoPorContaDeMudancaDeTela)
-  console.log("qtdCliquesAteAgora: " + qtdCliquesAteAgora)
-  console.log("qtdCliquesAtePinturaCompleta: " + qtdCliquesAtePinturaCompleta)
+  console.log(
+    "renderizacaoPorContaDeMudancaDeTela: " +
+      renderizacaoPorContaDeMudancaDeTela
+  );
+  console.log("qtdCliquesAteAgora: " + qtdCliquesAteAgora);
+  console.log("qtdCliquesAtePinturaCompleta: " + qtdCliquesAtePinturaCompleta);
   if (qtdCliquesAteAgora > qtdCliquesAtePinturaCompleta) {
     return;
   } else if (qtdCliquesAteAgora === qtdCliquesAtePinturaCompleta) {
@@ -381,17 +375,17 @@ function renderizarNovamente() {
   qtdCliquesAteAgora--;
   qtdCliquesAteAgora--;
   renderizacaoPorContaDeMudancaDeTela = true;
-  adicionarCirculosBranco();
+  adicionarCirculosBranco(); // remove os círculos brancos antigos e os recria com base no novo tamanho da tela
 }
 
-function conferirResposta(pintura) {
+function conferirResposta(pinturaOpcao) {
   if (rodadaTerminou === true) {
-    return;
+    return; // rodada já terminou, cliques em opções de resposta são inviabilizados
   }
-  if (pintura.nome === pinturaRodadaAtual.nome) {
-    mostrarResolucao();
+  if (pinturaOpcao.nome === pinturaRodadaAtual.nome) {
+    mostrarResolucao(); // resposta correta
   } else {
-    mostrarResolucao(false);
+    mostrarResolucao(false); // resposta errada
   }
   rodadaTerminou = true;
 }
@@ -501,9 +495,7 @@ function terminarJogo() {
 mostrarPopUpInicio();
 iniciarRodada();
 adicionarBotaoMostrar();
-window.addEventListener("resize", () =>
-  renderizarNovamente()
-); //em caso de mudança no tamanho da tela
+window.addEventListener("resize", () => renderizarNovamente()); //em caso de mudança no tamanho da tela
 
 function countIntInArray(arr, int) {
   let result = 0;
