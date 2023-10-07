@@ -148,7 +148,7 @@ nomesPinturasParaOpcoes = pinturas.concat([
 var circlesIdsArray = []; //a array para os ids dos círculos criados
 var qtdCirculosTotal = 0; //quantidade total de círculos utilizados para encobrir a imagem
 var qtdCliquesAteAgora = 0; //quantidade de cliques já realizados para a mostrar a pintura nesta fase
-var qtdCliquesAtePinturaCompleta = 4; //quantidade de cliques até a pintura ser totalmente exibida
+var qtdCliquesAtePinturaCompleta = 6; //quantidade de cliques até a pintura ser totalmente exibida
 var renderizacaoPorContaDeMudancaDeTela = false; //motivo de renderização
 var pinturasRodadasPassadas = []; //array para guardar pinturas que já apareceram em rodadas passadas
 var scorePotencialDaRodada = 0; //score potencial da rodada atual
@@ -266,7 +266,7 @@ function adicionarPintura(pintura) {
   pinturaElementoHTML.id = "pinturaImagem";
   document.getElementById("pinturaConteiner").appendChild(pinturaElementoHTML);
   document.getElementById("pinturaConteiner").style.width = "100%";
-  document.getElementById("pinturaImagem").style.width = "97%";
+  document.getElementById("pinturaImagem").style.width = "87%";
   pinturaElementoHTML.onload = function (event) {
     adicionarCirculosBranco(pinturaElementoHTML);
   };
@@ -287,8 +287,8 @@ function adicionarCirculosBranco(pinturaElementoHTML) {
   let larguraPintura = window.innerWidth * 0.95;
   let alturaPintura =
     larguraPintura * (pinturaElementoHTML.height / pinturaElementoHTML.width);
-  let qtdCirculosHorizontal = larguraPintura / 30;
-  let qtdCirculosVertical = alturaPintura / 30;
+  let qtdCirculosHorizontal = larguraPintura / 20;
+  let qtdCirculosVertical = alturaPintura / 20;
   qtdCirculosTotal =
     Math.ceil(qtdCirculosHorizontal) * Math.ceil(qtdCirculosVertical);
   let topPintura = document
@@ -299,8 +299,8 @@ function adicionarCirculosBranco(pinturaElementoHTML) {
       //cria cada círculo:
       circlesIdsArray.push(`c${i}/${j}`);
       let circle = document.createElement("div");
-      circle.style.top = i * 30 - 10 + "px";
-      circle.style.left = j * 30 - 35 + "px";
+      circle.style.top = i * 20 - 10 + "px";
+      circle.style.left = j * 20 - 35 + "px";
       circle.classList.add("circles");
       circle.id = `c${i}/${j}`;
       document.getElementById("pinturaConteiner").appendChild(circle);
@@ -308,6 +308,8 @@ function adicionarCirculosBranco(pinturaElementoHTML) {
     }
   }
   console.log(document.getElementsByClassName("circles").length);
+  mostrarPintura(cliqueBotao = false);
+  mostrarPintura(cliqueBotao = false);
   mostrarPintura(cliqueBotao = false);
 }
 
@@ -385,7 +387,7 @@ function conferirResposta(pintura) {
 
 function atualizarScore() {
   scorePotencialDaRodada =
-    1250 - Math.min(qtdCliquesAteAgora, qtdCliquesAtePinturaCompleta) * 250;
+    1500 - Math.min(qtdCliquesAteAgora, qtdCliquesAtePinturaCompleta) * 250;
   if (document.body.contains(document.getElementById("score"))) {
     scoreElementoHTML = document.getElementById("score");
   } else {
@@ -501,3 +503,4 @@ function countIntInArray(arr, int) {
   }
   return result;
 }
+
