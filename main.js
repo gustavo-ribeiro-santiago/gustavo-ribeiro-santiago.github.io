@@ -262,9 +262,9 @@ function adicionarPintura(pintura) {
   document.getElementById("pinturaConteiner").appendChild(pinturaElementoHTML);
   document.getElementById("pinturaConteiner").style.width = "100%";
   document.getElementById("opcoesResposta").style.width = "100%";
-  pinturaElementoHTML.onload = function (event) {
+  pinturaElementoHTML.onload = (event) => {
     console.log(pinturaElementoHTML.height, pinturaElementoHTML.width);
-    if (pinturaElementoHTML.height * 0.7 > window.innerHeight) {
+    if (pinturaElementoHTML.height > window.innerHeight * 0.7) {
       document.getElementById("pinturaImagem").style.height = "70%";
     } else {
       document.getElementById("pinturaImagem").style.width = "87%";
