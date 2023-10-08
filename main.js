@@ -504,7 +504,7 @@ function terminarJogo() {
   let scoreFinal = document.createElement("div");
   scoreFinal.id = "scoreFinal";
   document.getElementById("popUpFimDoJogo").appendChild(scoreFinal);
-  scoreFinal.innerText = `${scoreAtual} points.`;
+  scoreFinal.innerText = `${scoreAtual} points out of 12000 possible points!`;
   let compartilheOSeuScore = document.createElement("div");
   document.getElementById("popUpFimDoJogo").appendChild(compartilheOSeuScore);
   compartilheOSeuScore.innerText = `Take a printscreen of this screen to show off your art knowledge to your friends.`;
