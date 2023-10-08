@@ -76,6 +76,7 @@ h2 {
 #scoreEBotaoShow {
   display: flex;
   justify-content: center;
+  align-self: center;
 }
 
 #score {
