@@ -73,6 +73,10 @@ h2 {
   font-weight: bold;
 }
 
+#scoreEBotaoShow {
+  display: flex;
+}
+
 #score {
   top: 0px;
   text-align: start;
@@ -81,11 +85,6 @@ h2 {
   background: #ffdf7d;
   padding: 5px;
   font-weight: bold;
-}
-
-#pinturaEResolucao {
-  display: flex;
-  transition: 2s;
 }
 
 .botoes {
@@ -112,6 +111,17 @@ h2 {
   background-color: gainsboro;
 }
 
+#botaoShow {
+  margin-top: 0px;
+  margin-bottom: 15px;
+  z-index: 3;
+}
+
+#pinturaEResolucao {
+  display: flex;
+  transition: 2s;
+}
+
 .opcoesDeResposta {
   /* text-align: left; */
   width: 40%;
@@ -127,11 +137,6 @@ h2 {
   transition: 2s;
 }
 
-#botaoShow {
-  margin-top: 0px;
-  margin-bottom: 15px;
-  z-index: 3;
-}
 
 #pinturaConteiner {
   position: relative;
