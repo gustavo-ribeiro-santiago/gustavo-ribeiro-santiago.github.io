@@ -81,6 +81,7 @@ h2 {
 #score {
   top: 0px;
   text-align: start;
+  margin-top: 10px;
   margin-bottom: 10px;
   display: inline-block;
   background: #ffdf7d;
