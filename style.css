@@ -79,13 +79,12 @@ h2 {
 }
 
 #score {
-  top: 5px;
   text-align: start;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 9px;
+  margin-bottom: 15px;
   display: inline-block;
   background: #ffdf7d;
-  padding: 5px;
+  padding: 8px;
   font-weight: bold;
 }
 
@@ -114,8 +113,8 @@ h2 {
 }
 
 #botaoShow {
-  margin-top: 0px;
-  margin-bottom: 15px;
+  margin-top: 10px;
+  margin-bottom: 20px;
   z-index: 3;
 }
 

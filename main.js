@@ -372,8 +372,8 @@ function mostrarPinturaCompleta() {
 function adicionarBotaoMostrar() {
   // Esta função adiciona o botão de mostrar mais da pintura
   document.getElementById(
-    "botaoShow"
-  ).innerHTML += `<button id="botoes" class="botoes" onclick="mostrarPintura()"> Show more of the painting </button>`;
+    "botaoShowConteiner"
+  ).innerHTML += `<button id="botaoShow" class="botoes" onclick="mostrarPintura()"> Show more of the painting </button>`;
 }
 
 function renderizarNovamente() {
@@ -406,7 +406,7 @@ function atualizarScore() {
   } else {
     scoreElementoHTML = document.createElement("div");
     scoreElementoHTML.id = "score";
-    document.getElementById("scoreSecao").appendChild(scoreElementoHTML);
+    document.getElementById("scoreConteiner").appendChild(scoreElementoHTML);
   }
   scoreElementoHTML.innerText = `Potencial score for this round: ${scorePotencialDaRodada}
   Your score so far: ${scoreAtual}`;
