@@ -302,10 +302,10 @@ function adicionarCirculos() {
   qtdCirculosTotal =
     Math.ceil(qtdCirculosHorizontal) * Math.ceil(qtdCirculosVertical);
   let topPintura = document
-    .getElementById("pinturaConteiner")
+    .getElementById("pinturaImagem")
     .getBoundingClientRect().top;
   let leftPintura = document
-    .getElementById("pinturaConteiner")
+    .getElementById("pinturaImagem")
     .getBoundingClientRect().left;
   for (var i = 0; i < qtdCirculosVertical; i++) {
     for (var j = 0; j < qtdCirculosHorizontal; j++) {
