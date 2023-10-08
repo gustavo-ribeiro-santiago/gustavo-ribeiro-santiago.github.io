@@ -422,7 +422,7 @@ function realcarScore(cor = "red") {
 }
 
 function mostrarResolucao(acerto = true) {
-  // Esta função mostra a resolução da rodada, se o jogador acertou ou errou e a história da pintura
+  // Esta função mostra a resolução da rodada, se o jogador acertou ou errou e a história da pintura:
   // Abrir aba de resolução:
   document.getElementById("resolucao").innerText = "";
   document.getElementById("resolucao").style.position = "absolute";
