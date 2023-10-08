@@ -423,7 +423,7 @@ function mostrarResolucao(acerto = true) {
   document.getElementById("resolucao").style.right = "0%";
   document.getElementById("pinturaImagem").style.width = "100%";
   document.getElementById("pinturaConteiner").style.width = "68%";
-  document.getElementById("opcoesResposta").style.width = "68%";
+  document.getElementById("opcoesResposta").classList.add("hidden");
   if (acerto) {
     // Mostrar 'Correct Answer!' e incrementar score:
     let tituloRespostaCorreta = document.createElement("h2");
