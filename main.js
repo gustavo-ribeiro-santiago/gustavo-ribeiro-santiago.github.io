@@ -267,8 +267,10 @@ function adicionarPintura(pintura) {
     console.log('pinturaElementoHTML.width: ' + pinturaElementoHTML.width);
     console.log('window.innerHeight: ' + window.innerHeight);
     console.log('window.innerWidth: ' + window.innerWidth);
-    if (pinturaElementoHTML.height > window.innerHeight * 0.7) {
-      document.getElementById("pinturaImagem").style.height = "70%";
+    let alturaRelativa = pinturaElementoHTML.height / window.innerHeight;
+    let larguraRelativa = pinturaElementoHTML.width / window.innerWidth;
+    if (alturaRelativa > larguraRelativa) {
+      document.getElementById("pinturaImagem").style.height = "87%";
     } else {
       document.getElementById("pinturaImagem").style.width = "87%";
     }
