@@ -271,7 +271,7 @@ function adicionarPintura(pintura) {
     let alturaRelativa = pinturaElementoHTML.height / window.innerHeight;
     let larguraRelativa = pinturaElementoHTML.width / window.innerWidth;
     if (alturaRelativa > larguraRelativa) {
-      document.getElementById("pinturaImagem").style.height = "87%";
+      document.getElementById("pinturaImagem").style.width = "87%";
     } else {
       document.getElementById("pinturaImagem").style.width = "87%";
     }
@@ -312,7 +312,6 @@ function adicionarCirculos() {
       circle.classList.add("circles");
       circle.id = `c${i}/${j}`;
       document.getElementById("pinturaConteiner").appendChild(circle);
-      console.log("test");
     }
   }
   console.log(document.getElementsByClassName("circles").length);
