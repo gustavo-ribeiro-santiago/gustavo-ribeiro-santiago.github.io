@@ -263,7 +263,7 @@ function adicionarPintura(pintura) {
   document.getElementById("pinturaConteiner").style.width = "100%";
   pinturaElementoHTML.onload = function (event) {
     console.log(pinturaElementoHTML.height, pinturaElementoHTML.width);
-    if (pinturaElementoHTML.height > pinturaElementoHTML.width) {
+    if (pinturaElementoHTML.height / pinturaElementoHTML.width > window.innerHeight / window.innerWidth) {
       document.getElementById("pinturaImagem").style.height = "87%";
     } else {
       document.getElementById("pinturaImagem").style.width = "87%";
