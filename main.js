@@ -271,9 +271,10 @@ function adicionarPintura() {
       let alturaRelativa = pinturaElementoHTML.height / window.innerHeight;
       let larguraRelativa = pinturaElementoHTML.width / window.innerWidth;
       if (alturaRelativa > larguraRelativa) {
-      document.getElementById("pinturaImagem").style.height =
-        (window.innerHeight * 0.7).toString() + "px";
-    } else {
+        pinturaElementoHTML.style.height =
+          (window.innerHeight * 0.7).toString() + "px";
+        //pinturaElementoHTML.style.width = "100%";
+      } else {
         pinturaElementoHTML.style.width = "90%";
       }
       // após adição da pintura, convocar função que cria os círculos que escondem a pintura:
@@ -425,12 +426,12 @@ function mostrarResolucao(acerto = true) {
   // Abrir aba de resolução:
   document.getElementById("resolucao").innerText = "";
   document.getElementById("resolucao").style.position = "absolute";
-  document.getElementById("resolucao").style.right = "0%";
+  document.getElementById("resolucao").style.right = "0.5%";
   setTimeout(() => {
-    document.getElementById("pinturaImagem").style.width = "100%";
-    document.getElementById("pinturaImagem").style.height = "100%";
+    document.getElementById("pinturaImagem").style.maxWidth = "fit-content";
+    document.getElementById("pinturaImagem").style.maxHeight = "fit-content";
   }, 2000);
-  document.getElementById("pinturaConteiner").style.width = "68%";
+  document.getElementById("pinturaConteiner").style.width = "67.5%";
   document.getElementById("opcoesResposta").classList.add("hidden");
 
   if (acerto) {
