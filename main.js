@@ -268,14 +268,15 @@ function adicionarPintura(pintura) {
     } else {
       document.getElementById("pinturaImagem").style.width = "87%";
     }
-    adicionarCirculosBranco();
+    // após adição da pintura, convocar função que cria os círculos que escondem a pintura:
+    adicionarCirculos();
   };
   qtdCliquesAteAgora = 0;
   return pinturaElementoHTML;
 }
 
-function adicionarCirculosBranco() {
-  //Esta função remove os círculos brancos sobrepostos existentes e adiciona novos para esconder a pintura
+function adicionarCirculos() {
+  //Esta função remove eventuais círculos já existentes e cria novos para esconder a pintura
   let pinturaElementoHTML = document.getElementById("pinturaImagem");
   const circles = document.getElementsByClassName("circles");
   if (circles.length > 0) {
@@ -284,7 +285,7 @@ function adicionarCirculosBranco() {
     }
     circlesIdsArray = [];
   }
-  //cria os círculos novos:
+  //criar os círculos novos:
   let larguraPintura = window.innerWidth * 0.95;
   let alturaPintura =
     larguraPintura * (pinturaElementoHTML.height / pinturaElementoHTML.width);
@@ -297,7 +298,7 @@ function adicionarCirculosBranco() {
     .getBoundingClientRect().top;
   for (var i = 0; i < qtdCirculosVertical; i++) {
     for (var j = 0; j < qtdCirculosHorizontal; j++) {
-      //cria cada círculo:
+      //criar cada círculo:
       circlesIdsArray.push(`c${i}/${j}`);
       let circle = document.createElement("div");
       circle.style.top = i * 20 - 10 + "px";
@@ -364,18 +365,19 @@ function mostrarPinturaCompleta() {
 }
 
 function adicionarBotaoMostrar() {
-  //Esta função adiciona o botão de mostrar a imagem
+  // Esta função adiciona o botão de mostrar mais da pintura
   document.getElementById(
     "botaoShow"
   ).innerHTML += `<button id="botoes" class="botoes" onclick="mostrarPintura()"> Show more of the painting </button>`;
 }
 
 function renderizarNovamente() {
+  // Esta função renderiza novamente a tela para quando houver uma mudança no tamanho da tela
   qtdCliquesAteAgora--;
   qtdCliquesAteAgora--;
   qtdCliquesAteAgora--;
   renderizacaoPorContaDeMudancaDeTela = true;
-  adicionarCirculosBranco(); // remove os círculos brancos antigos e os recria com base no novo tamanho da tela
+  adicionarCirculos(); // remove os círculos brancos antigos e os recria com base no novo tamanho da tela
 }
 
 function conferirResposta(pinturaOpcao) {
@@ -391,8 +393,9 @@ function conferirResposta(pinturaOpcao) {
 }
 
 function atualizarScore() {
+  // Esta função recalcula o score potencial da rodada e atualiza o placar com o score até o momento e o potencial da rodada
   scorePotencialDaRodada =
-    1500 - Math.min(qtdCliquesAteAgora, qtdCliquesAtePinturaCompleta) * 250;
+    1750 - Math.min(qtdCliquesAteAgora, qtdCliquesAtePinturaCompleta) * 250;
   if (document.body.contains(document.getElementById("score"))) {
     scoreElementoHTML = document.getElementById("score");
   } else {
@@ -413,13 +416,15 @@ function realcarScore(cor = "red") {
 }
 
 function mostrarResolucao(acerto = true) {
+  // Esta função mostra a resolução da rodada, se o jogador acertou ou errou e a história da pintura
+  // Mostrar aba de resolução:
   document.getElementById("resolucao").innerText = "";
   document.getElementById("resolucao").style.position = "absolute";
   document.getElementById("resolucao").style.right = "0%";
   document.getElementById("pinturaImagem").style.width = "100%";
   document.getElementById("pinturaConteiner").style.width = "68%";
   if (acerto) {
-    //Mostrar: 'Correct Answer!' in green
+    // Mostrar 'Correct Answer!' em verde e incrementar score:
     let tituloRespostaCorreta = document.createElement("h2");
     tituloRespostaCorreta.id = "tituloRespostaCorreta";
     document.getElementById("resolucao").appendChild(tituloRespostaCorreta);
@@ -427,7 +432,7 @@ function mostrarResolucao(acerto = true) {
     scoreAtual += scorePotencialDaRodada;
     realcarScore((cor = "lightgreen"));
   } else {
-    //Mostrar: 'Wrong Answer! The correct answer is:'. ('Wrong Answer' in red):
+    // Mostrar 'Wrong Answer! The correct answer is:' e realçar score:
     let conteinerRespostaErrada = document.createElement("div");
     conteinerRespostaErrada.id = "conteinerRespostaErrada";
     document.getElementById("resolucao").appendChild(conteinerRespostaErrada);
@@ -445,7 +450,7 @@ function mostrarResolucao(acerto = true) {
     realcarScore((cor = "red"));
   }
   atualizarScore();
-  //Mostrar nome e história da pintura:
+  // Mostrar nome e história da pintura:
   let tituloResolucaoHTML = document.createElement("h2");
   tituloResolucaoHTML.innerText = `"${pinturaRodadaAtual.nome}"
   by ${pinturaRodadaAtual.autor}`;
@@ -467,6 +472,7 @@ function mostrarResolucao(acerto = true) {
 }
 
 function adicionarBotaoProximaRodada() {
+  // Esta função cria o elemento do botão de próxima rodada:
   let botaoProximaRodada = document.createElement("button");
   document.getElementById("resolucao").appendChild(botaoProximaRodada);
   botaoProximaRodada.innerText = "Next round →";
@@ -476,6 +482,7 @@ function adicionarBotaoProximaRodada() {
 }
 
 function terminarJogo() {
+  // Esta função termina o jogo, mostrando o pop up final com os resultados:
   let popUp = document.createElement("div");
   popUp.id = "popUpFimDoJogo";
   document.getElementById("corpoSite").appendChild(popUp);
@@ -496,13 +503,3 @@ mostrarPopUpInicio();
 iniciarRodada();
 adicionarBotaoMostrar();
 window.addEventListener("resize", () => renderizarNovamente()); //em caso de mudança no tamanho da tela
-
-function countIntInArray(arr, int) {
-  let result = 0;
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === int) {
-      result++;
-    }
-  }
-  return result;
-}
