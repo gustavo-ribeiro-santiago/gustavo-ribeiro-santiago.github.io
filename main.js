@@ -217,6 +217,7 @@ function adicionarOpcoesDeResposta(pintura) {
   // criar lista de opções de resposta para a rodada:
   let opcoesDeResposta = criarListaDeOpcoesResposta();
   // criar elementos para opções de resposta:
+  document.getElementById("opcoesResposta").classList.remove("hidden");
   for (let numeroOpcao = 0; numeroOpcao < 6; numeroOpcao++) {
     opcoesRotuloElementoHTML = document.createElement("button");
     opcoesRotuloElementoHTML.classList.add("botoes");
@@ -263,15 +264,16 @@ function adicionarPintura(pintura) {
   document.getElementById("pinturaConteiner").style.width = "100%";
   document.getElementById("opcoesResposta").style.width = "100%";
   pinturaElementoHTML.onload = (event) => {
-    console.log('pinturaElementoHTML.height: ' + pinturaElementoHTML.height);
-    console.log('pinturaElementoHTML.width: ' + pinturaElementoHTML.width);
-    console.log('window.innerHeight: ' + window.innerHeight);
-    console.log('window.innerWidth: ' + window.innerWidth);
+    console.log("pinturaElementoHTML.height: " + pinturaElementoHTML.height);
+    console.log("pinturaElementoHTML.width: " + pinturaElementoHTML.width);
+    console.log("window.innerHeight: " + window.innerHeight);
+    console.log("window.innerWidth: " + window.innerWidth);
     // adaptar as dimensões da pintura ao espaço da tela:
     let alturaRelativa = pinturaElementoHTML.height / window.innerHeight;
     let larguraRelativa = pinturaElementoHTML.width / window.innerWidth;
     if (alturaRelativa > larguraRelativa) {
-      document.getElementById("pinturaImagem").style.height = (window.innerHeight * 0.7).toString() + "px";
+      document.getElementById("pinturaImagem").style.height =
+        (window.innerHeight * 0.7).toString() + "px";
     } else {
       document.getElementById("pinturaImagem").style.width = "87%";
     }
@@ -302,13 +304,16 @@ function adicionarCirculos() {
   let topPintura = document
     .getElementById("pinturaConteiner")
     .getBoundingClientRect().top;
+  let leftPintura = document
+    .getElementById("pinturaConteiner")
+    .getBoundingClientRect().left;
   for (var i = 0; i < qtdCirculosVertical; i++) {
     for (var j = 0; j < qtdCirculosHorizontal; j++) {
       //criar cada círculo:
       circlesIdsArray.push(`c${i}/${j}`);
       let circle = document.createElement("div");
       circle.style.top = i * 20 - 10 + "px";
-      circle.style.left = j * 20 - 35 + "px";
+      circle.style.left = j * 20 - 35 + leftPintura + "px";
       circle.classList.add("circles");
       circle.id = `c${i}/${j}`;
       document.getElementById("pinturaConteiner").appendChild(circle);
