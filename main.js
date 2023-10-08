@@ -267,6 +267,7 @@ function adicionarPintura(pintura) {
     console.log('pinturaElementoHTML.width: ' + pinturaElementoHTML.width);
     console.log('window.innerHeight: ' + window.innerHeight);
     console.log('window.innerWidth: ' + window.innerWidth);
+    // adaptar as dimensões da pintura ao espaço da tela:
     let alturaRelativa = pinturaElementoHTML.height / window.innerHeight;
     let larguraRelativa = pinturaElementoHTML.width / window.innerWidth;
     if (alturaRelativa > larguraRelativa) {
