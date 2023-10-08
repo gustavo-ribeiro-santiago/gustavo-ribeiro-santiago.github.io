@@ -246,9 +246,9 @@ function criarListaDeOpcoesResposta() {
   // escolhe aleatoriamente mais 5 nomes de pinturas para aparecer nas opções:
   for (let i = 0; i < 5; ) {
     pinturaAleatoria = nomesPinturasParaOpcoes.sample();
-    if (listaDeOpcoes.indexOf(pinturaAleatoria) === -1) { 
-      listaDeOpcoes.push(pinturaAleatoria); 
-      i++; 
+    if (listaDeOpcoes.indexOf(pinturaAleatoria) === -1) {
+      listaDeOpcoes.push(pinturaAleatoria);
+      i++;
     }
   }
   return listaDeOpcoes;
@@ -408,6 +408,7 @@ function atualizarScore() {
 }
 
 function realcarScore(cor = "red") {
+  // Esta função realça temporariamente o placar do score para ressaltar que houve mudança
   document.getElementById("score").style.background = cor;
   setTimeout(
     () => (document.getElementById("score").style.background = "#ffdf7d"),
@@ -417,14 +418,14 @@ function realcarScore(cor = "red") {
 
 function mostrarResolucao(acerto = true) {
   // Esta função mostra a resolução da rodada, se o jogador acertou ou errou e a história da pintura
-  // Mostrar aba de resolução:
+  // Abrir aba de resolução:
   document.getElementById("resolucao").innerText = "";
   document.getElementById("resolucao").style.position = "absolute";
   document.getElementById("resolucao").style.right = "0%";
   document.getElementById("pinturaImagem").style.width = "100%";
   document.getElementById("pinturaConteiner").style.width = "68%";
   if (acerto) {
-    // Mostrar 'Correct Answer!' em verde e incrementar score:
+    // Mostrar 'Correct Answer!' e incrementar score:
     let tituloRespostaCorreta = document.createElement("h2");
     tituloRespostaCorreta.id = "tituloRespostaCorreta";
     document.getElementById("resolucao").appendChild(tituloRespostaCorreta);
@@ -502,4 +503,4 @@ function terminarJogo() {
 mostrarPopUpInicio();
 iniciarRodada();
 adicionarBotaoMostrar();
-window.addEventListener("resize", () => renderizarNovamente()); //em caso de mudança no tamanho da tela
+window.addEventListener("resize", () => renderizarNovamente()); // renderizar novamente em caso de mudança no tamanho da tela
