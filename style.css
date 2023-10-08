@@ -79,7 +79,7 @@ h2 {
 }
 
 #score {
-  top: 0px;
+  top: 5px;
   text-align: start;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -139,15 +139,15 @@ h2 {
   transition: 2s;
 }
 
-
 #pinturaConteiner {
   position: relative;
   transition: 2s;
   display: flex;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
-img {
+#pinturaImagem {
   z-index: 2;
   transition: 2s;
 }

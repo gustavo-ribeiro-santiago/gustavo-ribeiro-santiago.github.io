@@ -142,15 +142,16 @@ nomesPinturasParaOpcoes = pinturas.concat([
   { nome: "The Luncheon on the Grass", autor: "Edouard Manet" },
 ]); // Opções de respostas extras para pinturas que não estão no jogo
 
-var circlesIdsArray = []; //a array para os ids dos círculos criados
-var qtdCirculosTotal = 0; //quantidade total de círculos utilizados para encobrir a imagem
-var qtdCliquesAteAgora = 0; //quantidade de cliques já realizados para a mostrar a pintura nesta fase
-var qtdCliquesAtePinturaCompleta = 6; //quantidade de cliques até a pintura ser totalmente exibida
-var renderizacaoPorContaDeMudancaDeTela = false; //é uma nova renderização por conta de mudança do tamanho da tela?
-var pinturasRodadasPassadas = []; //array para guardar pinturas que já apareceram em rodadas passadas
-var scorePotencialDaRodada = 0; //score potencial da rodada atual
-var scoreAtual = 0; //score atual acumulado do jogador
-var rodadaTerminou = false; //armazena se rodada atual já terminou para inviabilizar cliques em opções de resposta
+var circlesIdsArray = []; // a array para os ids dos círculos criados
+var qtdCirculosTotal = 0; // quantidade total de círculos utilizados para encobrir a imagem
+var qtdCliquesAteAgora = 0; // quantidade de cliques já realizados para a mostrar a pintura nesta fase
+var qtdCliquesAtePinturaCompleta = 6; // quantidade de cliques até a pintura ser totalmente exibida
+var renderizacaoPorContaDeMudancaDeTela = false; // é uma nova renderização por conta de mudança do tamanho da tela?
+var pinturaRodadaAtual = {}; // armazena as informações da pintura da rodada atual
+var pinturasRodadasPassadas = []; // array para guardar pinturas que já apareceram em rodadas passadas
+var scorePotencialDaRodada = 0; // score potencial da rodada atual
+var scoreAtual = 0; // score atual acumulado do jogador
+var rodadaTerminou = false; // armazena se rodada atual já terminou para inviabilizar cliques em opções de resposta
 
 function mostrarPopUpInicio() {
   let fundoOfuscado = document.createElement("div");
@@ -209,15 +210,14 @@ function iniciarRodada() {
   }
   document.getElementById("opcoesResposta").innerText = "";
   //criar pintura e opções de resposta da nova rodada:
-  pinturaElementoHTML = adicionarPintura(pinturaRodadaAtual);
-  adicionarOpcoesDeResposta(pinturaRodadaAtual);
+  pinturaElementoHTML = adicionarPintura();
+  adicionarOpcoesDeResposta();
 }
 
-function adicionarOpcoesDeResposta(pintura) {
+function adicionarOpcoesDeResposta() {
   // criar lista de opções de resposta para a rodada:
   let opcoesDeResposta = criarListaDeOpcoesResposta();
   // criar elementos para opções de resposta:
-  document.getElementById("opcoesResposta").classList.remove("hidden");
   for (let numeroOpcao = 0; numeroOpcao < 6; numeroOpcao++) {
     opcoesRotuloElementoHTML = document.createElement("button");
     opcoesRotuloElementoHTML.classList.add("botoes");
@@ -255,30 +255,30 @@ function criarListaDeOpcoesResposta() {
   return listaDeOpcoes;
 }
 
-function adicionarPintura(pintura) {
+function adicionarPintura() {
   // Esta função adiciona a pintura ao site
   var pinturaElementoHTML = document.createElement("img");
-  pinturaElementoHTML.src = `./assets/${pintura.arquivo}`;
+  pinturaElementoHTML.src = `./assets/${pinturaRodadaAtual.arquivo}`;
   pinturaElementoHTML.id = "pinturaImagem";
   document.getElementById("pinturaConteiner").appendChild(pinturaElementoHTML);
   document.getElementById("pinturaConteiner").style.width = "100%";
-  document.getElementById("opcoesResposta").style.width = "100%";
+  pinturaElementoHTML.classList.add("hidden");
   pinturaElementoHTML.onload = (event) => {
-    console.log("pinturaElementoHTML.height: " + pinturaElementoHTML.height);
-    console.log("pinturaElementoHTML.width: " + pinturaElementoHTML.width);
-    console.log("window.innerHeight: " + window.innerHeight);
-    console.log("window.innerWidth: " + window.innerWidth);
-    // adaptar as dimensões da pintura ao espaço da tela:
-    let alturaRelativa = pinturaElementoHTML.height / window.innerHeight;
-    let larguraRelativa = pinturaElementoHTML.width / window.innerWidth;
-    if (alturaRelativa > larguraRelativa) {
+    setTimeout(() => {
+      // mostrar a pintura e adaptar as dimensões da pintura ao espaço da tela:
+      pinturaElementoHTML.classList.remove("hidden");
+      document.getElementById("opcoesResposta").classList.remove("hidden");
+      let alturaRelativa = pinturaElementoHTML.height / window.innerHeight;
+      let larguraRelativa = pinturaElementoHTML.width / window.innerWidth;
+      if (alturaRelativa > larguraRelativa) {
       document.getElementById("pinturaImagem").style.height =
         (window.innerHeight * 0.7).toString() + "px";
     } else {
-      document.getElementById("pinturaImagem").style.width = "87%";
-    }
-    // após adição da pintura, convocar função que cria os círculos que escondem a pintura:
-    adicionarCirculos();
+        pinturaElementoHTML.style.width = "90%";
+      }
+      // após adição da pintura, convocar função que cria os círculos que escondem a pintura:
+      adicionarCirculos();
+    }, 2000);
   };
   qtdCliquesAteAgora = 0;
   return pinturaElementoHTML;
@@ -426,9 +426,13 @@ function mostrarResolucao(acerto = true) {
   document.getElementById("resolucao").innerText = "";
   document.getElementById("resolucao").style.position = "absolute";
   document.getElementById("resolucao").style.right = "0%";
-  document.getElementById("pinturaImagem").style.width = "100%";
+  setTimeout(() => {
+    document.getElementById("pinturaImagem").style.width = "100%";
+    document.getElementById("pinturaImagem").style.height = "100%";
+  }, 2000);
   document.getElementById("pinturaConteiner").style.width = "68%";
   document.getElementById("opcoesResposta").classList.add("hidden");
+
   if (acerto) {
     // Mostrar 'Correct Answer!' e incrementar score:
     let tituloRespostaCorreta = document.createElement("h2");
