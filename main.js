@@ -263,7 +263,10 @@ function adicionarPintura(pintura) {
   document.getElementById("pinturaConteiner").style.width = "100%";
   document.getElementById("opcoesResposta").style.width = "100%";
   pinturaElementoHTML.onload = (event) => {
-    console.log(pinturaElementoHTML.height, pinturaElementoHTML.width);
+    console.log('pinturaElementoHTML.height: ' + pinturaElementoHTML.height);
+    console.log('pinturaElementoHTML.width: ' + pinturaElementoHTML.width);
+    console.log('window.innerHeight: ' + window.innerHeight);
+    console.log('window.innerWidth: ' + window.innerWidth);
     if (pinturaElementoHTML.height > window.innerHeight * 0.7) {
       document.getElementById("pinturaImagem").style.height = "70%";
     } else {
@@ -318,12 +321,6 @@ function adicionarCirculos() {
 function mostrarPintura(cliqueBotao = true) {
   //Esta função mostra a pintura pouco a pouco escondendo os círculos brancos
   qtdCliquesAteAgora++;
-  console.log(
-    "renderizacaoPorContaDeMudancaDeTela: " +
-      renderizacaoPorContaDeMudancaDeTela
-  );
-  console.log("qtdCliquesAteAgora: " + qtdCliquesAteAgora);
-  console.log("qtdCliquesAtePinturaCompleta: " + qtdCliquesAtePinturaCompleta);
   if (qtdCliquesAteAgora > qtdCliquesAtePinturaCompleta) {
     return;
   } else if (qtdCliquesAteAgora === qtdCliquesAtePinturaCompleta) {
