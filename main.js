@@ -261,6 +261,7 @@ function adicionarPintura(pintura) {
   pinturaElementoHTML.id = "pinturaImagem";
   document.getElementById("pinturaConteiner").appendChild(pinturaElementoHTML);
   document.getElementById("pinturaConteiner").style.width = "100%";
+  document.getElementById("opcoesResposta").style.width = "100%";
   pinturaElementoHTML.onload = function (event) {
     console.log(pinturaElementoHTML.height, pinturaElementoHTML.width);
     if (pinturaElementoHTML.height / pinturaElementoHTML.width > window.innerHeight / window.innerWidth) {
@@ -424,6 +425,7 @@ function mostrarResolucao(acerto = true) {
   document.getElementById("resolucao").style.right = "0%";
   document.getElementById("pinturaImagem").style.width = "100%";
   document.getElementById("pinturaConteiner").style.width = "68%";
+  document.getElementById("opcoesResposta").style.width = "68%";
   if (acerto) {
     // Mostrar 'Correct Answer!' e incrementar score:
     let tituloRespostaCorreta = document.createElement("h2");
