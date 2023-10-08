@@ -287,9 +287,8 @@ function adicionarCirculos() {
     circlesIdsArray = [];
   }
   //criar os círculos novos:
-  let larguraPintura = window.innerWidth * 0.95;
-  let alturaPintura =
-    larguraPintura * (pinturaElementoHTML.height / pinturaElementoHTML.width);
+  let larguraPintura = pinturaElementoHTML.width;
+  let alturaPintura = pinturaElementoHTML.height;
   let qtdCirculosHorizontal = larguraPintura / 20;
   let qtdCirculosVertical = alturaPintura / 20;
   qtdCirculosTotal =
