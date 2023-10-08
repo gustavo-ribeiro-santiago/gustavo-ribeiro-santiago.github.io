@@ -271,7 +271,7 @@ function adicionarPintura(pintura) {
     let alturaRelativa = pinturaElementoHTML.height / window.innerHeight;
     let larguraRelativa = pinturaElementoHTML.width / window.innerWidth;
     if (alturaRelativa > larguraRelativa) {
-      document.getElementById("pinturaImagem").style.width = "87%";
+      document.getElementById("pinturaImagem").style.height = (window.innerHeight * 0.7).toString() + "px";
     } else {
       document.getElementById("pinturaImagem").style.width = "87%";
     }
