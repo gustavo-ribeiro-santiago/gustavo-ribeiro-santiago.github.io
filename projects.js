@@ -9,7 +9,7 @@ const projects = [
   },
   {
     title:"Guess the Painting Game",
-    description:"This webpage sets up a guessing game where players can gradually reveal a famous painting and then choose the correct artist and name of the painting from multiple options. The score is based on how much of the painting the player sees before making their choice.",
+    description:"This project is a fun and interactive game that challenges your knowledge of famous paintings and artists. Test your art history skills by identifying the names of famous paintings and their creators. You will be presented with a partially obscured painting, and your goal is to guess the name of the painting and the artist who created it. The catch is that the more of the painting you reveal, the fewer points you can earn.",
     cover: "./assets/guess the painting game.png",
     tags:["Game", "Personal"],
     websiteLink:"https://gustavo-ribeiro-santiago.github.io/guess-the-painting-game/",
