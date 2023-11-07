@@ -9,7 +9,7 @@ const projects = [
   },
   {
     title:"Guess the Painting Game",
-    description:"This web application showcases the use of Mapbox and Leaflet to create an interactive map that displays the real-time locations of buses in Rio de Janeiro. The map is centered on Rio de Janeiro, and bus location data is fetched from the cityhall's API to display bus markers on the map. It utilizes the Leaflet Markercluster plugin for efficient marker clustering.",
+    description:"This webpage sets up a guessing game where players can gradually reveal a famous painting and then choose the correct artist and name of the painting from multiple options. The score is based on how much of the painting the player sees before making their choice.",
     cover: "./assets/guess the painting game.png",
     tags:["Game", "Personal"],
     websiteLink:"https://gustavo-ribeiro-santiago.github.io/guess-the-painting-game/",
