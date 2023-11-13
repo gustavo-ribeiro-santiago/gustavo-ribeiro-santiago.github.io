@@ -1,6 +1,6 @@
 const projects = [
   {
-    title:"Real Time Buses Tracker Rio de Janeiro",
+    title:"Real Time Bus Tracker Rio de Janeiro",
     description:"This web application showcases the use of Mapbox and Leaflet to create an interactive map that displays the real-time locations of buses in Rio de Janeiro. The map is centered on Rio de Janeiro, and bus location data is fetched from the cityhall's API to display bus markers on the map. It utilizes the Leaflet Markercluster plugin for efficient marker clustering.",
     cover: "./assets/real time bus tracker project.png",
     tags:["APIs", "Maps", "MIT Coding Assignment"],
