@@ -3,7 +3,7 @@ const projects = [
     title:"Real Time Buses Tracker Rio de Janeiro",
     description:"This web application showcases the use of Mapbox and Leaflet to create an interactive map that displays the real-time locations of buses in Rio de Janeiro. The map is centered on Rio de Janeiro, and bus location data is fetched from the cityhall's API to display bus markers on the map. It utilizes the Leaflet Markercluster plugin for efficient marker clustering.",
     cover: "./assets/real time bus tracker project.png",
-    tags:["APIs", "Maps", "MIT Coding Exercise"],
+    tags:["APIs", "Maps", "MIT Coding Assignment"],
     websiteLink:"https://gustavo-ribeiro-santiago.github.io/real-time-bus-tracker-rj/",
     gitHubRepository:"https://github.com/gustavo-ribeiro-santiago/real-time-bus-tracker-rj"
   },
@@ -16,10 +16,18 @@ const projects = [
     gitHubRepository:"https://github.com/gustavo-ribeiro-santiago/guess-the-painting-game"
   },
   {
+    title:"Issues Management Application",
+    description:"Application developed in 2021 using Power Apps and Power BI as part of a consulting project to a mining company. The application helped users track governmental issues and stakeholders relevant to the company.",
+    cover: "./assets/issues management.jpg",
+    tags:["Professional Work", "Power Platform", "UI/UX"],
+    websiteLink:"https://gustavo-ribeiro-santiago.github.io/issues-management-project/",
+    gitHubRepository:"https://github.com/gustavo-ribeiro-santiago/issues-management-project"
+  },
+  {
     title:"Pac-Man Animation",
     description:"A simple Pac-Man animation where the player can create multiple Pac-Men that move around the screen and bounce off the walls. The Pac-Men change directions and display different images to create a fun and interactive animation.",
     cover: "./assets/pac-man animation.png",
-    tags:["MIT Coding Exercise"],
+    tags:["MIT Coding Assignment"],
     websiteLink:"https://gustavo-ribeiro-santiago.github.io/pac-man-animation/",
     gitHubRepository:"https://github.com/gustavo-ribeiro-santiago/pac-man-animation"
   },
@@ -27,7 +35,7 @@ const projects = [
     title:"Interactive Follow-the-Mouse Eyes",
     description:"Experience a captivating animation where a pair of eyes follows your every move. The eyes react to your mouse cursor, adding an element of interactivity and charm to the visual display.",
     cover: "./assets/eyes.png",
-    tags:["MIT Coding Exercise"],
+    tags:["MIT Coding Assignment"],
     websiteLink:"https://gustavo-ribeiro-santiago.github.io/eyes-exercise/",
     gitHubRepository:"https://github.com/gustavo-ribeiro-santiago/eyes-exercise"
   },
@@ -35,16 +43,22 @@ const projects = [
 const tagsStyles = {
   "APIs":"primary",
   "Maps":"secondary",
-  "MIT Coding Exercise":"success",
+  "MIT Coding Assignment":"success",
   "Game":"warning",
   "Personal":"info",
+  "Professional Work": "primary", 
+  "Power Platform": "success", 
+  "UI/UX": "secondary",
 };
 const tagsFilters = {
   "APIs":false,
   "Maps":false,
-  "MIT Coding Exercise":false,
+  "MIT Coding Assignment":false,
   "Game":false,
   "Personal":false,
+  "Professional Work": false, 
+  "Power Platform": false, 
+  "UI/UX": false,
 };
 let searchedProjects = [];
 
@@ -53,13 +67,13 @@ const renderTagsFilters = () => {
   document.getElementById("tags").innerHTML = "";
   Object.keys(tagsStyles).forEach(tag => {
     document.getElementById("tags").innerHTML +=
-    `<button type="button" class="btn btn${tagsFilters[tag] ? "" : "-outline"}-${tagsStyles[tag]} btn-sm mx-1 ${tag}" style="padding-top: 2px; padding-bottom: 2px">${tag}</button>`
+    `<button type="button" class="btn btn${tagsFilters[tag] ? "" : "-outline"}-${tagsStyles[tag]} mx-1 ${tag}" style="padding-top: 2px; padding-bottom: 2px">${tag}</button>`
   });
   // add click event listener to each tag filter
   Object.keys(tagsStyles).forEach(tag => {
-      const elements = document.getElementsByClassName(tag);
-      for (let e of elements) {
-        e.addEventListener("click", () => {
+    const elements = document.getElementsByClassName(tag);
+    for (let e of elements) {
+      e.addEventListener("click", () => {
         tagsFilters[tag] = !tagsFilters[tag];
         renderProjects();
         renderTagsFilters();
