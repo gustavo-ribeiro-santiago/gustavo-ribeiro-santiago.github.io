@@ -46,9 +46,9 @@ const tagsStyles = {
   "MIT Coding Assignment":"success",
   "Game":"warning",
   "Personal":"info",
-  "Professional Work": "primary", 
+  "Professional Work": "dark", 
   "Power Platform": "success", 
-  "UI/UX": "secondary",
+  "UI/UX": "danger",
 };
 const tagsFilters = {
   "APIs":false,
