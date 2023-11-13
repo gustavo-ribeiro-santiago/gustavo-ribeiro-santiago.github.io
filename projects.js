@@ -20,8 +20,8 @@ const projects = [
     description:"Application developed in 2021 using Power Apps and Power BI as part of a consulting project to a mining company. The application helped users track governmental issues and stakeholders relevant to the company.",
     cover: "./assets/issues management.jpg",
     tags:["Professional Work", "Power Platform", "UI/UX"],
-    websiteLink:"https://gustavo-ribeiro-santiago.github.io/issues-management-project/",
-    gitHubRepository:"https://github.com/gustavo-ribeiro-santiago/issues-management-project"
+    websiteLink:"https://gustavo-ribeiro-santiago.github.io/issues-management-application/",
+    gitHubRepository:"https://github.com/gustavo-ribeiro-santiago/issues-management-application"
   },
   {
     title:"Pac-Man Animation",
