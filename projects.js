@@ -1,6 +1,14 @@
 const projects = [
   {
-    title:"Real Time Bus Tracker Rio de Janeiro",
+    title:"Issues Management Application",
+    description:"Application developed in 2021 using Power Apps and Power BI as part of a consulting project to a mining company. The application helped users track governmental issues and stakeholders relevant to the company.",
+    cover: "./assets/issues management.jpg",
+    tags:["Professional Work", "Power Platform", "UI/UX"],
+    websiteLink:"https://gustavo-ribeiro-santiago.github.io/issues-management-application/",
+    gitHubRepository:"https://github.com/gustavo-ribeiro-santiago/issues-management-application"
+  },
+  {
+    title:"Rio de Janeiro Real Time Bus Tracker",
     description:"This web application showcases the use of Mapbox and Leaflet to create an interactive map that displays the real-time locations of buses in Rio de Janeiro. The map is centered on Rio de Janeiro, and bus location data is fetched from the cityhall's API to display bus markers on the map. It utilizes the Leaflet Markercluster plugin for efficient marker clustering.",
     cover: "./assets/real time bus tracker project.png",
     tags:["APIs", "Maps", "MIT Coding Assignment"],
@@ -14,14 +22,6 @@ const projects = [
     tags:["Game", "Personal"],
     websiteLink:"https://gustavo-ribeiro-santiago.github.io/guess-the-painting-game/",
     gitHubRepository:"https://github.com/gustavo-ribeiro-santiago/guess-the-painting-game"
-  },
-  {
-    title:"Issues Management Application",
-    description:"Application developed in 2021 using Power Apps and Power BI as part of a consulting project to a mining company. The application helped users track governmental issues and stakeholders relevant to the company.",
-    cover: "./assets/issues management.jpg",
-    tags:["Professional Work", "Power Platform", "UI/UX"],
-    websiteLink:"https://gustavo-ribeiro-santiago.github.io/issues-management-application/",
-    gitHubRepository:"https://github.com/gustavo-ribeiro-santiago/issues-management-application"
   },
   {
     title:"Pac-Man Animation",
@@ -67,7 +67,7 @@ const renderTagsFilters = () => {
   document.getElementById("tags").innerHTML = "";
   Object.keys(tagsStyles).forEach(tag => {
     document.getElementById("tags").innerHTML +=
-    `<button type="button" class="btn btn${tagsFilters[tag] ? "" : "-outline"}-${tagsStyles[tag]} mx-1 ${tag}" style="padding-top: 2px; padding-bottom: 2px">${tag}</button>`
+    `<button type="button" class="btn btn${tagsFilters[tag] ? "" : "-outline"}-${tagsStyles[tag]} mx-1 mt-1 btn-sm ${tag}">${tag}</button>`
   });
   // add click event listener to each tag filter
   Object.keys(tagsStyles).forEach(tag => {
@@ -105,12 +105,12 @@ const renderProjects = () => {
     });
     htmlProjects += `
     <div class="col">
-      <div class="card mx-auto mb-5" style="max-width: 540px;">
+      <div class="card mx-auto mb-5 w-50">
         <a href='${project.websiteLink}'>
           <img width="100%" class="bd-placeholder-img card-img-top" src="${project.cover}" alt="">
         </a>
         <div class="card-body">
-          <h5 class="card-title">${project.title}</h5>
+          <h5 class="card-title text-dark">${project.title}</h5>
           <p class="card-text">${project.description} ${htmlTags}</p>
           <a href="${project.websiteLink}" class="btn btn-primary mr-1">Access Website</a>
           <a href="${project.gitHubRepository}" class="btn btn-secondary mx-1">GitHub Repository</a>
