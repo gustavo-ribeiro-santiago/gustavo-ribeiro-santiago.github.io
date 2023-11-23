@@ -17,7 +17,7 @@ const projects = [
   },
   {
     title:"Guess the Painting Game",
-    description:"This project is a fun and interactive game that challenges your knowledge of famous paintings and artists. Test your art history skills by identifying the names of famous paintings and their creators. You will be presented with a partially obscured painting, and your goal is to guess the name of the painting and the artist who created it. The catch is that the more of the painting you reveal, the fewer points you can earn.",
+    description:"This project is a fun and interactive game that challenges your knowledge of famous paintings and artists. You will be presented with a partially obscured painting, and your goal is to guess the name of the painting and the artist who created it. The catch is that the more of the painting you reveal, the fewer points you can earn.",
     cover: "./assets/guess the painting game.png",
     tags:["Game", "Personal"],
     websiteLink:"https://gustavo-ribeiro-santiago.github.io/guess-the-painting-game/",
@@ -85,6 +85,7 @@ const renderTagsFilters = () => {
 const renderProjects = () => {
   // Function to render projects' cards on page
   let htmlProjects = "";
+  let odd = true;
   projects.forEach(project => {
     // apply tag filters, if any
     let hideProject = false;
@@ -104,8 +105,8 @@ const renderProjects = () => {
       style="padding-top: 2px; padding-bottom: 2px">${tag}</button>`;
     });
     htmlProjects += `
-    <div class="col">
-      <div class="card mx-auto mb-5 w-50">
+    <div class="col py-3" ${odd ? ' style="background:rgba(240,240,240,0.5)"' : ''}>
+      <div class="card mx-auto w-50">
         <a href='${project.websiteLink}'>
           <img width="100%" class="bd-placeholder-img card-img-top" src="${project.cover}" alt="">
         </a>
@@ -117,6 +118,7 @@ const renderProjects = () => {
         </div>
       </div>
     </div>`
+    odd = !odd;
   });
   document.getElementById("projects").innerHTML = htmlProjects;
 }
