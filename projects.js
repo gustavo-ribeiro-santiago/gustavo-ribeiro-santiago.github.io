@@ -19,9 +19,9 @@ const projects = [
     title:"Rioops Task Manager",
     description:"The Rioops Task Manager is a comprehensive task management system developed from 2019 to 2020 using Microsoft Access and VBA for seamless integration and efficient task tracking within a large shipping company. This tailored solution was designed to streamline, organize and automate various operational tasks, enhancing productivity and ensuring timely deliveries.",
     cover: "./assets/rioops task manager.png",
-    tags:["Professional Work", "Access", "VBA"],
-    websiteLink:"https://gustavo-ribeiro-santiago.github.io/issues-management-application/",
-    gitHubRepository:"https://github.com/gustavo-ribeiro-santiago/issues-management-application"
+    tags:["Professional Work", "Access", "VBA", "UI/UX"],
+    websiteLink:"https://gustavo-ribeiro-santiago.github.io/sw-task-management/",
+    gitHubRepository:"https://github.com/gustavo-ribeiro-santiago/sw-task-management"
   },
   {
     title:"Guess the Painting Game",
