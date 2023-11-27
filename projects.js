@@ -16,6 +16,14 @@ const projects = [
     gitHubRepository:"https://github.com/gustavo-ribeiro-santiago/real-time-bus-tracker-rj"
   },
   {
+    title:"Rioops Task Manager",
+    description:"The Rioops Task Manager is a comprehensive task management system developed from 2019 to 2020 using Microsoft Access and VBA for seamless integration and efficient task tracking within a large shipping company. This tailored solution was designed to streamline, organize and automate various operational tasks, enhancing productivity and ensuring timely deliveries.",
+    cover: "./assets/rioops task manager.png",
+    tags:["Professional Work", "Access", "VBA"],
+    websiteLink:"https://gustavo-ribeiro-santiago.github.io/issues-management-application/",
+    gitHubRepository:"https://github.com/gustavo-ribeiro-santiago/issues-management-application"
+  },
+  {
     title:"Guess the Painting Game",
     description:"This project is a fun and interactive game that challenges your knowledge of famous paintings and artists. You will be presented with a partially obscured painting, and your goal is to guess the name of the painting and the artist who created it. The catch is that the more of the painting you reveal, the fewer points you can earn.",
     cover: "./assets/guess the painting game.png",
@@ -49,6 +57,8 @@ const tagsStyles = {
   "Professional Work": "dark", 
   "Power Platform": "success", 
   "UI/UX": "danger",
+  "Access": "secondary",
+  "VBA": "success"
 };
 const tagsFilters = {
   "APIs":false,
@@ -59,6 +69,8 @@ const tagsFilters = {
   "Professional Work": false, 
   "Power Platform": false, 
   "UI/UX": false,
+  "Access": false,
+  "VBA": false
 };
 let searchedProjects = [];
 
@@ -113,7 +125,7 @@ const renderProjects = () => {
         <div class="card-body">
           <h5 class="card-title text-dark">${project.title}</h5>
           <p class="card-text">${project.description} ${htmlTags}</p>
-          <a href="${project.websiteLink}" class="btn btn-primary mr-1">Access Website</a>
+          <a href="${project.websiteLink}" class="btn btn-primary mr-1">View Demo</a>
           <a href="${project.gitHubRepository}" class="btn btn-secondary mx-1">GitHub Repository</a>
         </div>
       </div>
