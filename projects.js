@@ -11,7 +11,7 @@ const projects = [
     title:"Rio de Janeiro Real Time Bus Tracker",
     description:"This web application showcases the use of Mapbox and Leaflet to create an interactive map that displays the real-time locations of buses in Rio de Janeiro. The bus location data is fetched from the cityhall's API to display bus markers on the map. It utilizes the Leaflet Markercluster plugin for efficient marker clustering.",
     cover: "./assets/real time bus tracker project.png",
-    tags:["APIs", "Maps", "MIT Coding Assignment"],
+    tags:["APIs", "Maps", "MIT Coding Assignment", "Bootstrap"],
     websiteLink:"https://gustavo-ribeiro-santiago.github.io/real-time-bus-tracker-rj/",
     gitHubRepository:"https://github.com/gustavo-ribeiro-santiago/real-time-bus-tracker-rj"
   },
@@ -27,9 +27,17 @@ const projects = [
     title:"Guess the Painting Game",
     description:"This project is a fun and interactive game that challenges your knowledge of famous paintings and artists. You will be presented with a partially obscured painting, and your goal is to guess the name of the painting and the artist who created it. The catch is that the more of the painting you reveal, the fewer points you can earn.",
     cover: "./assets/guess the painting game.png",
-    tags:["Game", "Personal"],
+    tags:["Game", "Personal", "Tailwind CSS"],
     websiteLink:"https://gustavo-ribeiro-santiago.github.io/guess-the-painting-game/",
     gitHubRepository:"https://github.com/gustavo-ribeiro-santiago/guess-the-painting-game"
+  },
+  {
+    title:"Star Wars Game",
+    description:"This project was submitted as a requirement for the Industrial Engineering course at UFRJ. It was presented in fulfillment of the requirements for the Programming 2 class in 2016. The game is developed in Python, incorporates Object-Oriented Programming (OOP) principles, and utilizes the Tkinter library for the graphical user interface.",
+    cover: "./assets/star wars game.png",
+    tags:["Game", "University", "Python", "Object-Oriented Programming (OOP)"],
+    websiteLink:"https://gustavo-ribeiro-santiago.github.io/star-wars-game/",
+    gitHubRepository:"https://github.com/gustavo-ribeiro-santiago/star-wars-game"
   },
   {
     title:"Pac-Man Animation",
@@ -49,28 +57,38 @@ const projects = [
   },
 ];
 const tagsStyles = {
-  "APIs":"primary",
-  "Maps":"secondary",
-  "MIT Coding Assignment":"success",
-  "Game":"warning",
-  "Personal":"info",
+  "APIs": "primary",
+  "Maps": "secondary",
+  "MIT Coding Assignment": "success",
   "Professional Work": "dark", 
   "Power Platform": "success", 
   "UI/UX": "danger",
   "Access": "secondary",
-  "VBA": "success"
+  "VBA": "primary",
+  "Game": "success",
+  "Personal": "warning",
+  "Bootstrap": "danger",
+  "Tailwind CSS" : "info",
+  "University": "warning",
+  "Python": "primary",
+  "Object-Oriented Programming (OOP)": "dark",
 };
 const tagsFilters = {
   "APIs":false,
   "Maps":false,
   "MIT Coding Assignment":false,
-  "Game":false,
-  "Personal":false,
   "Professional Work": false, 
   "Power Platform": false, 
   "UI/UX": false,
   "Access": false,
-  "VBA": false
+  "VBA": false,
+  "Game": false,
+  "Personal": false,
+  "Bootstrap": false,
+  "Tailwind CSS": false,
+  "University": false,
+  "Python": false,
+  "Object-Oriented Programming (OOP)": false,
 };
 let searchedProjects = [];
 
