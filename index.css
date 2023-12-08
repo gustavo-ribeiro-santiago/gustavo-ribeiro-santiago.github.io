@@ -1,0 +1,36 @@
+body {
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url('./assets/banniere-vague-bleue-fluide-moderne-fond-blanc_1035-18538.jpg');
+  background-size: cover;
+}
+
+.nav-bar {
+  opacity: 0.9;
+}
+
+.nav-title {
+  font-size: large;
+}
+
+.intro-video {
+  padding-top: 150px;
+}
+
+.intro-video iframe {
+  width: 100%;
+  height: 56vw;
+}
+
+.bio-text{
+  text-align: justify;
+}
+
+@media (min-width: 768px) {
+  .intro-video iframe {
+    width: 50%;
+    height: 28vw;
+  }
+}
