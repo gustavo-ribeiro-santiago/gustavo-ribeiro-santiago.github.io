@@ -1,5 +1,16 @@
 const projects = [
   {
+    title: 'Rio de Janeiro Real Time Bus Tracker',
+    description:
+      "This web application showcases the use of Mapbox and Leaflet to create an interactive map that displays the real-time locations of buses in Rio de Janeiro. The bus location data is fetched from the cityhall's API to display bus markers on the map. It utilizes the Leaflet Markercluster plugin for efficient marker clustering.",
+    cover: './assets/real time bus tracker project.png',
+    tags: ['Personal', 'React', 'Mobile First', 'Leaflet', 'Mapbox', 'Bootstrap'],
+    websiteLink:
+      'https://gustavo-ribeiro-santiago.github.io/real-time-bus-tracker-rj/',
+    gitHubRepository:
+      'https://github.com/gustavo-ribeiro-santiago/real-time-bus-tracker-rj',
+  },
+  {
     title: 'Issues Management Application',
     description:
       'Application developed in 2021 using Power Apps and Power BI as part of a consulting project to a mining company. The application helped users track governmental issues and stakeholders relevant to the company.',
@@ -9,17 +20,6 @@ const projects = [
       'https://gustavo-ribeiro-santiago.github.io/issues-management-application/',
     gitHubRepository:
       'https://github.com/gustavo-ribeiro-santiago/issues-management-application',
-  },
-  {
-    title: 'Rio de Janeiro Real Time Bus Tracker',
-    description:
-      "This web application showcases the use of Mapbox and Leaflet to create an interactive map that displays the real-time locations of buses in Rio de Janeiro. The bus location data is fetched from the cityhall's API to display bus markers on the map. It utilizes the Leaflet Markercluster plugin for efficient marker clustering.",
-    cover: './assets/real time bus tracker project.png',
-    tags: ['APIs', 'Maps', 'MIT Coding Assignment', 'Bootstrap'],
-    websiteLink:
-      'https://gustavo-ribeiro-santiago.github.io/real-time-bus-tracker-rj/',
-    gitHubRepository:
-      'https://github.com/gustavo-ribeiro-santiago/real-time-bus-tracker-rj',
   },
   {
     title: 'Rioops Task Manager',
@@ -37,7 +37,7 @@ const projects = [
     description:
       'This project is a fun and interactive game that challenges your knowledge of famous paintings and artists. You will be presented with a partially obscured painting, and your goal is to guess the name of the painting and the artist who created it. The catch is that the more of the painting you reveal, the fewer points you can earn.',
     cover: './assets/guess the painting game.png',
-    tags: ['Game', 'Personal', 'Tailwind CSS'],
+    tags: ['Personal', 'Game', 'Tailwind CSS'],
     websiteLink:
       'https://gustavo-ribeiro-santiago.github.io/guess-the-painting-game/',
     gitHubRepository:
@@ -48,7 +48,7 @@ const projects = [
     description:
       'This project was submitted as a requirement for the Industrial Engineering course at UFRJ. It was presented in fulfillment of the requirements for the Programming 2 class in 2016. The game is developed in Python, incorporates Object-Oriented Programming (OOP) principles, and utilizes the Tkinter library for the graphical user interface.',
     cover: './assets/star wars game.png',
-    tags: ['Game', 'University', 'Python', 'Object-Oriented Programming (OOP)'],
+    tags: ['University', 'Game', 'Python', 'Object-Oriented Programming'],
     websiteLink: 'https://gustavo-ribeiro-santiago.github.io/star-wars-game/',
     gitHubRepository:
       'https://github.com/gustavo-ribeiro-santiago/star-wars-game',
@@ -77,13 +77,23 @@ const projects = [
 ];
 const tags = [
   {
-    tag: 'APIs',
+    tag: 'React',
     style: 'primary',
     selected: false,
   },
   {
-    tag: 'Maps',
+    tag: 'Leaflet',
+    style: 'success',
+    selected: false,
+  },
+  {
+    tag: 'Mapbox',
     style: 'secondary',
+    selected: false,
+  },
+  {
+    tag: 'Personal',
+    style: 'warning',
     selected: false,
   },
   {
@@ -94,6 +104,11 @@ const tags = [
   {
     tag: 'Professional Work',
     style: 'dark',
+    selected: false,
+  },
+  {
+    tag: 'University',
+    style: 'warning',
     selected: false,
   },
   {
@@ -122,11 +137,6 @@ const tags = [
     selected: false,
   },
   {
-    tag: 'Personal',
-    style: 'warning',
-    selected: false,
-  },
-  {
     tag: 'Bootstrap',
     style: 'danger',
     selected: false,
@@ -137,18 +147,18 @@ const tags = [
     selected: false,
   },
   {
-    tag: 'University',
-    style: 'warning',
-    selected: false,
-  },
-  {
     tag: 'Python',
     style: 'primary',
     selected: false,
   },
   {
-    tag: 'Object-Oriented Programming (OOP)',
+    tag: 'Object-Oriented Programming',
     style: 'dark',
+    selected: false,
+  },
+  {
+    tag: 'Mobile First',
+    style: 'danger',
     selected: false,
   },
 ];
