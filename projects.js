@@ -4,11 +4,34 @@ const projects = [
     description:
       "This web application showcases the use of Mapbox and Leaflet to create an interactive map that displays the real-time locations of buses in Rio de Janeiro. The bus location data is fetched from the cityhall's API to display bus markers on the map. It utilizes the Leaflet Markercluster plugin for efficient marker clustering.",
     cover: './assets/real time bus tracker project.png',
-    tags: ['Personal', 'React', 'Mobile First', 'Leaflet', 'Mapbox', 'Bootstrap'],
+    tags: [
+      'Personal',
+      'React',
+      'Mobile First',
+      'Leaflet',
+      'Mapbox',
+      'Bootstrap',
+    ],
     websiteLink:
       'https://gustavo-ribeiro-santiago.github.io/real-time-bus-tracker-rj/',
     gitHubRepository:
       'https://github.com/gustavo-ribeiro-santiago/real-time-bus-tracker-rj',
+  },
+  {
+    title: 'The Simple Speech App',
+    description:
+      'How many years of education are required to understand your speech? The Flesch-Kincaid Grade Level score is a very popular test used by educators, marketeers, policy makers and many others. Interestingly, successful communicators such as Steve Jobs and Elon Musk are known to give speeches that, according to this test, demand minimal education.',
+    cover: './assets/the simple speech app.png',
+    tags: [
+      'Personal',
+      'React',
+      'Mobile First',
+      'Bootstrap',
+    ],
+    websiteLink:
+      'https://gustavo-ribeiro-santiago.github.io/the-simple-speech-app/',
+    gitHubRepository:
+      'https://github.com/gustavo-ribeiro-santiago/the-simple-speech-app',
   },
   {
     title: 'Issues Management Application',
@@ -211,7 +234,7 @@ const renderProjects = () => {
       // create html elements
       let htmlTags = '';
       projTags.forEach((projTag) => {
-        ({ selected, style } = tags.find(({ tag }) => (tag === projTag)));
+        ({ selected, style } = tags.find(({ tag }) => tag === projTag));
         htmlTags += `<button type="button" class="btn btn${
           selected ? '' : '-outline'
         }-${style} btn-sm mx-1 ${projTag} project-tag">${projTag}</button>`;
