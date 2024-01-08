@@ -18,6 +18,22 @@ const projects = [
       'https://github.com/gustavo-ribeiro-santiago/real-time-bus-tracker-rj',
   },
   {
+    title: 'Hacker News Stories Website',
+    description:
+      'This React application provides a user-friendly interface for exploring the latest Hacker News stories. Users can search for specific topics and navigate through paginated results. The app also includes a feature to display comments and subcomments associated with each story.',
+    cover: './assets/hacker news stories.png',
+    tags: [
+      'Personal',
+      'React',
+      'Mobile First',
+      'Bootstrap',
+    ],
+    websiteLink:
+      'https://gustavo-ribeiro-santiago.github.io/hacker-news-stories/',
+    gitHubRepository:
+      'https://github.com/gustavo-ribeiro-santiago/hacker-news-stories',
+  },
+  {
     title: 'The Simple Speech App',
     description:
       'How many years of education are required to understand your speech? The Flesch-Kincaid Grade Level score is a very popular test used by educators, marketeers, policy makers and many others. Interestingly, successful communicators such as Steve Jobs and Elon Musk are known to give speeches that, according to this test, demand minimal education.',
