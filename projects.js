@@ -20,12 +20,13 @@ const projects = [
   {
     title: 'Hacker News Stories Website',
     description:
-      'This React application provides a user-friendly interface for exploring the latest Hacker News stories. Users can search for specific topics and navigate through paginated results. The app also includes a feature to display comments and subcomments associated with each story.',
+      'This React application provides a user-friendly interface for exploring the Hacker News stories. Users can filter by date and by tags, sort by different criteria, search for keywords and navigate through paginated results. The app also allows the users to view nested comments associated with each story.',
     cover: './assets/hacker news stories.png',
     tags: [
       'Personal',
       'React',
       'Mobile First',
+      'Material UI',
       'Bootstrap',
     ],
     websiteLink:
@@ -173,6 +174,11 @@ const tags = [
   {
     tag: 'Game',
     style: 'success',
+    selected: false,
+  },
+  {
+    tag: 'Material UI',
+    style: 'primary',
     selected: false,
   },
   {
