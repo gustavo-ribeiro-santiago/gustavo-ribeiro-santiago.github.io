@@ -1,5 +1,26 @@
 const projects = [
   {
+    title: 'Rocket Food Delivery App',
+    description:
+      "Rocket Food Delivery is a comprehensive full-stack food delivery application that seamlessly connects customers, restaurants, and delivery partners. Built with Next.js and React for a responsive and dynamic user interface, and Stripe for secure payment processing. The back-end, powered by Strapi, handles user authentication, order management, and restaurant data, with PostgreSQL as the data storage solution. Front-end hosted on Vercel, while AWS S3 stores media assets and AWS EC2 manages scalable compute resources.",
+      // "This web application showcases the use of Mapbox and Leaflet to create an interactive map that displays the real-time locations of buses in Rio de Janeiro. The bus location data is fetched from the cityhall's API to display bus markers on the map. It utilizes the Leaflet Markercluster plugin for efficient marker clustering.",
+    cover: './assets/rocket food delivery.png',
+    tags: [
+      'MIT Coding Assignment',
+      'React',
+      'Next.js',
+      'Strapi',
+      'Stripe',
+      'Vercel',
+      'AWS',
+      'Bootstrap',
+    ],
+    websiteLink:
+      'https://gustavo-ribeiro-santiago.github.io/real-time-bus-tracker-rj/',
+    gitHubRepository:
+      'https://github.com/gustavo-ribeiro-santiago/real-time-bus-tracker-rj',
+  },
+  {
     title: 'Rio de Janeiro Real Time Bus Tracker',
     description:
       "This web application showcases the use of Mapbox and Leaflet to create an interactive map that displays the real-time locations of buses in Rio de Janeiro. The bus location data is fetched from the cityhall's API to display bus markers on the map. It utilizes the Leaflet Markercluster plugin for efficient marker clustering.",
@@ -117,7 +138,32 @@ const projects = [
 ];
 const tags = [
   {
+    tag: 'Next.js',
+    style: 'dark',
+    selected: false,
+  },
+  {
+    tag: 'AWS',
+    style: 'warning',
+    selected: false,
+  },
+  {
     tag: 'React',
+    style: 'primary',
+    selected: false,
+  },
+  {
+    tag: 'Vercel',
+    style: 'dark',
+    selected: false,
+  },
+  {
+    tag: 'Strapi',
+    style: 'secondary',
+    selected: false,
+  },
+  {
+    tag: 'Stripe',
     style: 'primary',
     selected: false,
   },
