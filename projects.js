@@ -1,9 +1,28 @@
 const projects = [
   {
+    title: 'Find the Vehicles App',
+    description:
+      "This application uses YOLOv5, trained through transfer learning, for object detection and annotation. The backend is built with FastAPI and served on an AWS EC2 instance. The frontend is built with Next.js and deployed on Vercel.",
+    cover: './assets/find the vehicles app.png',
+    tags: [
+      'Python',
+      'AWS',
+      'Docker',
+      'FastAPI',
+      'Next.js',
+      'React',
+      'Vercel',
+      'Bootstrap',
+    ],
+    websiteLink:
+      'https://find-the-vehicles.vercel.app/',
+    gitHubRepository:
+      'https://github.com/gustavo-ribeiro-santiago/find-the-vehicles-app',
+  },
+  {
     title: 'Rocket Food Delivery App',
     description:
-      "Rocket Food Delivery is a comprehensive full-stack food delivery application that seamlessly connects customers, restaurants, and delivery partners. Built with Next.js and React for a responsive and dynamic user interface, and Stripe for secure payment processing. The back-end, powered by Strapi, handles user authentication, order management, and restaurant data, with PostgreSQL as the data storage solution. Front-end hosted on Vercel, while AWS S3 stores media assets and AWS EC2 manages scalable compute resources.",
-      // "This web application showcases the use of Mapbox and Leaflet to create an interactive map that displays the real-time locations of buses in Rio de Janeiro. The bus location data is fetched from the cityhall's API to display bus markers on the map. It utilizes the Leaflet Markercluster plugin for efficient marker clustering.",
+      "Rocket Food Delivery is a full-stack food delivery app built with Next.js and React for the user interface and Stripe for secure payment processing. The back-end, powered by Strapi, handles user authentication, order management, and restaurant data, with PostgreSQL as the data storage solution. Front-end hosted on Vercel, while AWS S3 stores media assets and the backend is served on an AWS EC2 instance.",
     cover: './assets/rocket food delivery.png',
     tags: [
       'MIT Coding Assignment',
@@ -16,9 +35,9 @@ const projects = [
       'Bootstrap',
     ],
     websiteLink:
-      'https://gustavo-ribeiro-santiago.github.io/real-time-bus-tracker-rj/',
+      'https://rocket-food-delivery.vercel.app',
     gitHubRepository:
-      'https://github.com/gustavo-ribeiro-santiago/real-time-bus-tracker-rj',
+      'https://github.com/gustavo-ribeiro-santiago/full-stack-food-delivery-frontend',
   },
   {
     title: 'Rio de Janeiro Real Time Bus Tracker',
@@ -39,7 +58,7 @@ const projects = [
       'https://github.com/gustavo-ribeiro-santiago/real-time-bus-tracker-rj',
   },
   {
-    title: 'Hacker News Stories Website',
+    title: 'Hacker News Stories',
     description:
       'This React application provides a user-friendly interface for exploring the Hacker News stories. Users can filter by date and by tags, sort by different criteria, search for keywords and navigate through paginated results. The app also allows the users to view nested comments associated with each story.',
     cover: './assets/hacker news stories.png',
@@ -138,13 +157,28 @@ const projects = [
 ];
 const tags = [
   {
+    tag: 'AWS',
+    style: 'warning',
+    selected: false,
+  },
+  {
+    tag: 'Docker',
+    style: 'primary',
+    selected: false,
+  },
+  {
     tag: 'Next.js',
     style: 'dark',
     selected: false,
   },
   {
-    tag: 'AWS',
-    style: 'warning',
+    tag: 'Python',
+    style: 'primary',
+    selected: false,
+  },
+  {
+    tag: 'FastAPI',
+    style: 'success',
     selected: false,
   },
   {
@@ -235,11 +269,6 @@ const tags = [
   {
     tag: 'Tailwind CSS',
     style: 'info',
-    selected: false,
-  },
-  {
-    tag: 'Python',
-    style: 'primary',
     selected: false,
   },
   {
