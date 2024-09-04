@@ -2,7 +2,9 @@ const projects = [
   {
     title: 'Find the Vehicles App',
     description:
-      "This application uses YOLOv5, trained through transfer learning, for object detection and annotation. The backend is built with FastAPI and served on an AWS EC2 instance. The frontend is built with Next.js and deployed on Vercel.",
+      "This application uses YOLO, trained through transfer learning, for \
+object detection and annotation. The backend is built with FastAPI and served \
+on an AWS EC2 instance. The frontend is built with Next.js and deployed on Vercel.",
     cover: './assets/find the vehicles app.png',
     tags: [
       'Python',
@@ -20,9 +22,58 @@ const projects = [
       'https://github.com/gustavo-ribeiro-santiago/find-the-vehicles-app',
   },
   {
+    title: 'Hacker News Stories',
+    description:
+      'This React application provides a user-friendly interface for exploring \
+the Hacker News stories. Users can summarize articles with AI, filter by date \
+and by tags, sort by different criteria, search for keywords and navigate through \
+paginated results. The app also allows the users to view nested comments \
+associated with each story.',
+    cover: './assets/hacker news stories.png',
+    tags: [
+      'Personal',
+      'Django',
+      'LangChain',
+      'React',
+      'Mobile First',
+      'Material UI',
+      'Bootstrap',
+    ],
+    websiteLink:
+      'https://gustavo-ribeiro-santiago.github.io/hacker-news-stories/',
+    gitHubRepository:
+      'https://github.com/gustavo-ribeiro-santiago/hacker-news-stories',
+  },
+  {
+    title: 'Rio de Janeiro Real Time Bus Tracker',
+    description:
+      "This web application showcases the use of Mapbox and Leaflet to create an \
+interactive map that displays the real-time locations of buses in Rio de Janeiro. \
+The bus location data is fetched from the cityhall's API to display bus markers on \
+the map. It utilizes the Leaflet Markercluster plugin for efficient marker clustering.",
+    cover: './assets/real time bus tracker project.png',
+    tags: [
+      'Personal',
+      'React',
+      'Mobile First',
+      'Leaflet',
+      'Mapbox',
+      'Bootstrap',
+    ],
+    websiteLink:
+      'https://gustavo-ribeiro-santiago.github.io/real-time-bus-tracker-rj/',
+    gitHubRepository:
+      'https://github.com/gustavo-ribeiro-santiago/real-time-bus-tracker-rj',
+  },
+  {
     title: 'Rocket Food Delivery App',
     description:
-      "Rocket Food Delivery is a full-stack food delivery app built with Next.js and React for the user interface and Stripe for secure payment processing. The back-end, powered by Strapi, handles user authentication, order management, and restaurant data, with PostgreSQL as the data storage solution. Front-end hosted on Vercel, while AWS S3 stores media assets and the backend is served on an AWS EC2 instance.",
+      "Rocket Food Delivery is a full-stack food delivery app built with Next.js \
+and React for the user interface and Stripe for secure payment processing. The \
+back-end, powered by Strapi, handles user authentication, order management, and \
+restaurant data, with PostgreSQL as the data storage solution. Front-end hosted \
+on Vercel, while AWS S3 stores media assets and the backend is served on an AWS \
+EC2 instance.",
     cover: './assets/rocket food delivery.png',
     tags: [
       'MIT Coding Assignment',
@@ -40,44 +91,12 @@ const projects = [
       'https://github.com/gustavo-ribeiro-santiago/full-stack-food-delivery-frontend',
   },
   {
-    title: 'Rio de Janeiro Real Time Bus Tracker',
-    description:
-      "This web application showcases the use of Mapbox and Leaflet to create an interactive map that displays the real-time locations of buses in Rio de Janeiro. The bus location data is fetched from the cityhall's API to display bus markers on the map. It utilizes the Leaflet Markercluster plugin for efficient marker clustering.",
-    cover: './assets/real time bus tracker project.png',
-    tags: [
-      'Personal',
-      'React',
-      'Mobile First',
-      'Leaflet',
-      'Mapbox',
-      'Bootstrap',
-    ],
-    websiteLink:
-      'https://gustavo-ribeiro-santiago.github.io/real-time-bus-tracker-rj/',
-    gitHubRepository:
-      'https://github.com/gustavo-ribeiro-santiago/real-time-bus-tracker-rj',
-  },
-  {
-    title: 'Hacker News Stories',
-    description:
-      'This React application provides a user-friendly interface for exploring the Hacker News stories. Users can filter by date and by tags, sort by different criteria, search for keywords and navigate through paginated results. The app also allows the users to view nested comments associated with each story.',
-    cover: './assets/hacker news stories.png',
-    tags: [
-      'Personal',
-      'React',
-      'Mobile First',
-      'Material UI',
-      'Bootstrap',
-    ],
-    websiteLink:
-      'https://gustavo-ribeiro-santiago.github.io/hacker-news-stories/',
-    gitHubRepository:
-      'https://github.com/gustavo-ribeiro-santiago/hacker-news-stories',
-  },
-  {
     title: 'The Simple Speech App',
     description:
-      'How many years of education are required to understand your speech? The Flesch-Kincaid Grade Level score is a very popular test used by educators, marketeers, policy makers and many others. Interestingly, successful communicators such as Steve Jobs and Elon Musk are known to give speeches that, according to this test, demand minimal education.',
+      'How many years of education are required to understand your speech? The \
+Flesch-Kincaid Grade Level score is a very popular test used by educators, \
+marketeers, policy makers and many others. Interestingly, successful communicators \
+are known to give speeches that, according to this test, demand minimal education.',
     cover: './assets/the simple speech app.png',
     tags: [
       'Personal',
@@ -93,7 +112,9 @@ const projects = [
   {
     title: 'Issues Management Application',
     description:
-      'Application developed in 2021 using Power Apps and Power BI as part of a consulting project to a mining company. The application helped users track governmental issues and stakeholders relevant to the company.',
+      'Application developed in 2021 using Power Apps and Power BI as part of a \
+consulting project to a mining company. The application helped users track \
+governmental issues and stakeholders relevant to the company.',
     cover: './assets/issues management.jpg',
     tags: ['Professional Work', 'Power Platform', 'UI/UX'],
     websiteLink:
@@ -104,7 +125,11 @@ const projects = [
   {
     title: 'Rioops Task Manager',
     description:
-      'The Rioops Task Manager is a comprehensive task management system developed from 2019 to 2020 using Microsoft Access and VBA for seamless integration and efficient task tracking within a large shipping company. This tailored solution was designed to streamline, organize and automate various operational tasks, enhancing productivity and ensuring timely deliveries.',
+      'The Rioops Task Manager is a comprehensive task management system developed \
+from 2019 to 2020 using Microsoft Access and VBA for seamless integration and \
+efficient task tracking within a large shipping company. This tailored solution \
+was designed to streamline, organize and automate various operational tasks, \
+enhancing productivity and ensuring timely deliveries.',
     cover: './assets/rioops task manager.png',
     tags: ['Professional Work', 'Access', 'VBA', 'UI/UX'],
     websiteLink:
@@ -115,7 +140,10 @@ const projects = [
   {
     title: 'Guess the Painting Game',
     description:
-      'This project is a fun and interactive game that challenges your knowledge of famous paintings and artists. You will be presented with a partially obscured painting, and your goal is to guess the name of the painting and the artist who created it. The catch is that the more of the painting you reveal, the fewer points you can earn.',
+      'This project is a fun and interactive game that challenges your knowledge of \
+famous paintings and artists. You will be presented with a partially obscured painting, \
+and your goal is to guess the name of the painting and the artist who created it. The \
+catch is that the more of the painting you reveal, the fewer points you can earn.',
     cover: './assets/guess the painting game.png',
     tags: ['Personal', 'Game', 'Tailwind CSS'],
     websiteLink:
@@ -126,7 +154,10 @@ const projects = [
   {
     title: 'Star Wars Game',
     description:
-      'This project was submitted as a requirement for the Industrial Engineering course at UFRJ. It was presented in fulfillment of the requirements for the Programming 2 class in 2016. The game is developed in Python, incorporates Object-Oriented Programming (OOP) principles, and utilizes the Tkinter library for the graphical user interface.',
+      'This project was submitted as a requirement for the Industrial Engineering course \
+at UFRJ. It was presented in fulfillment of the requirements for the Programming 2 class in \
+2016. The game is developed in Python, incorporates Object-Oriented Programming (OOP) \
+principles, and utilizes the Tkinter library for the graphical user interface.',
     cover: './assets/star wars game.png',
     tags: ['University', 'Game', 'Python', 'Object-Oriented Programming'],
     websiteLink: 'https://gustavo-ribeiro-santiago.github.io/star-wars-game/',
@@ -136,7 +167,9 @@ const projects = [
   {
     title: 'Pac-Man Animation',
     description:
-      'A simple Pac-Man animation where the player can create multiple Pac-Men that move around the screen and bounce off the walls. The Pac-Men change directions and display different images to create a fun and interactive animation.',
+      'A simple Pac-Man animation where the player can create multiple Pac-Men that move \
+around the screen and bounce off the walls. The Pac-Men change directions and display \
+different images to create a fun and interactive animation.',
     cover: './assets/pac-man animation.png',
     tags: ['MIT Coding Assignment'],
     websiteLink:
@@ -147,7 +180,9 @@ const projects = [
   {
     title: 'Interactive Follow-the-Mouse Eyes',
     description:
-      'Experience a captivating animation where a pair of eyes follows your every move. The eyes react to your mouse cursor, adding an element of interactivity and charm to the visual display.',
+      'Experience a captivating animation where a pair of eyes follows your every move. \
+The eyes react to your mouse cursor, adding an element of interactivity and charm to the \
+visual display.',
     cover: './assets/eyes.png',
     tags: ['MIT Coding Assignment'],
     websiteLink: 'https://gustavo-ribeiro-santiago.github.io/eyes-exercise/',
@@ -178,6 +213,16 @@ const tags = [
   },
   {
     tag: 'FastAPI',
+    style: 'success',
+    selected: false,
+  },
+  {
+    tag: 'Django',
+    style: 'dark',
+    selected: false,
+  },
+  {
+    tag: 'LangChain',
     style: 'success',
     selected: false,
   },
