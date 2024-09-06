@@ -16,7 +16,7 @@ body {
 }
 
 .bio-container {
-  padding-top: 105px;
+  padding-top: 150px;
 }
 
 .intro-video iframe {
@@ -29,8 +29,7 @@ body {
 }
 
 @media (min-width: 768px) {
-  .intro-video iframe {
-    width: 50%;
-    height: 28vw;
+  .bio-container {
+    padding-top: 105px;
   }
 }
