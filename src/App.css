@@ -49,6 +49,22 @@ section {
   cursor: pointer;
 }
 
+.grow-on-hover {
+  transition: transform 0.3s ease-in-out;
+}
+
+.grow-on-hover:hover {
+  transform: scale(1.2);
+}
+
+.grow-on-hover-1_1 {
+  transition: transform 0.3s ease-in-out;
+}
+
+.grow-on-hover-1_1:hover {
+  transform: scale(1.1);
+}
+
 .web-dev-photo {
   padding-top: 1.2rem;
   padding-bottom: 1.2rem;
@@ -78,7 +94,6 @@ section {
   margin: 2rem;
   display: flex;
   flex-wrap: wrap;
-  cursor: pointer;
 }
 
 .project-photo-container {
@@ -87,6 +102,7 @@ section {
 
 .project-photo {
   border-radius: 1rem;
+  cursor: pointer;
 }
 
 .project-data {
@@ -161,11 +177,11 @@ section {
     margin: 2rem;
     display: flex;
     flex-wrap: nowrap;
-    cursor: pointer;
   }
 
   .project-photo {
     border-radius: 2rem;
+    cursor: pointer;
   }
 
   .project-data {
@@ -174,6 +190,7 @@ section {
   }
 
   .project-description {
+    cursor: pointer;
     margin: 1.5rem 1rem 0.5rem;
   }
 

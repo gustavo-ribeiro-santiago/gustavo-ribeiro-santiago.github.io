@@ -195,7 +195,7 @@ function App() {
       title: 'Find the Vehicles App',
       description:
         'This application uses YOLO, trained through transfer learning, for \
-  object detection and annotation. The backend is built with FastAPI and served \
+  vehicle detection and annotation, achieving 85% accuracy for cars. The backend is built with FastAPI and served \
   on an AWS EC2 instance. The frontend is built with Next.js and deployed on Vercel.',
       cover: './assets/find the vehicles app.png',
       type: ['AI & Machine Learning', 'Web Development'],
@@ -440,30 +440,46 @@ function App() {
   );
 
   const handleSelectProjectType = (projectType) => {
-    filteredProjectTypes.indexOf(projectType) === -1 &&
-      setFilteredProjectTypes([...filteredProjectTypes, projectType]);
+    setFilteredProjectTypes([projectType]);
+    window.location.hash = '#';
     window.location.hash = '#projects';
   };
 
-  const handleUnselectProjectType = (projectType) => {
+  const handleFilterProjectType = (projectType) => {
+    filteredProjectTypes.indexOf(projectType) === -1 &&
+      setFilteredProjectTypes([...filteredProjectTypes, projectType]);
+    window.location.hash = '#';
+    window.location.hash = '#projects';
+  };
+
+  const handleUnfilterProjectType = (projectType) => {
     const updatedState = filteredProjectTypes.filter(
       (type) => type !== projectType
     );
     setFilteredProjectTypes(updatedState);
+    window.location.hash = '#';
     window.location.hash = '#projects';
   };
 
   const handleSelectSkill = (skill) => {
-    filteredSkills.indexOf(skill) === -1 &&
-      setFilteredSkills([...filteredSkills, skill]);
+    setFilteredSkills([skill]);
+    window.location.hash = '#';
     window.location.hash = '#projects';
   };
 
-  const handleUnselectSkill = (unselectedSkill) => {
+  const handleFilterSkill = (skill) => {
+    filteredSkills.indexOf(skill) === -1 &&
+      setFilteredSkills([...filteredSkills, skill]);
+    window.location.hash = '#';
+    window.location.hash = '#projects';
+  };
+
+  const handleUnfilterSkill = (unselectedSkill) => {
     const updatedState = filteredSkills.filter(
       (skill) => skill !== unselectedSkill
     );
     setFilteredSkills(updatedState);
+    window.location.hash = '#';
     window.location.hash = '#projects';
   };
 
@@ -483,12 +499,12 @@ function App() {
           projects={projects}
           projectTypes={projectTypes}
           filteredProjectTypes={filteredProjectTypes}
-          handleSelectProjectType={handleSelectProjectType}
-          handleUnselectProjectType={handleUnselectProjectType}
+          handleFilterProjectType={handleFilterProjectType}
+          handleUnfilterProjectType={handleUnfilterProjectType}
           allSkills={allSkills}
           filteredSkills={filteredSkills}
-          handleSelectSkill={handleSelectSkill}
-          handleUnselectSkill={handleUnselectSkill}
+          handleFilterSkill={handleFilterSkill}
+          handleUnfilterSkill={handleUnfilterSkill}
           projectsWithDetails={projectsWithDetails}
           setProjectsWithDetails={setProjectsWithDetails}
         />
@@ -501,15 +517,15 @@ function FilterSkillChip({
   label,
   logoFileName,
   selected,
-  handleSelectSkill,
-  handleUnselectSkill,
+  handleFilterSkill,
+  handleUnfilterSkill,
   outline,
 }) {
   return (
     <Chip
       icon={<img height="20px" src={`./assets/logos/${logoFileName}`}></img>}
-      onDelete={selected ? () => handleUnselectSkill(label) : null}
-      onClick={selected ? null : () => handleSelectSkill(label)}
+      onDelete={selected ? () => handleUnfilterSkill(label) : null}
+      onClick={selected ? null : () => handleFilterSkill(label)}
       label={label}
       variant={outline ? 'outlined' : undefined}
     />
@@ -521,8 +537,8 @@ function ProjectCard({
   setProjectsWithDetails,
   projectsWithDetails,
   allSkills,
-  handleSelectSkill,
-  handleUnselectSkill,
+  handleFilterSkill,
+  handleUnfilterSkill,
   filteredSkills,
 }) {
   const toggleShowDescription = (title) => {
@@ -537,10 +553,12 @@ function ProjectCard({
     <div className="project-container border rounded-5">
       <div className="project-photo-container">
         <img
+          onClick={() => (window.location.href = project.websiteLink)}
           width="100%"
-          className="project-photo"
+          className="project-photo grow-on-hover-1_1"
           src={project.cover}
           alt="app photo"
+          title='Visit Demo'
         ></img>
       </div>
       <div className="project-data p-2">
@@ -585,7 +603,7 @@ function ProjectCard({
                       src={`./assets/logos/${skillData.logoFileName}`}
                     ></img>
                   }
-                  onDelete={() => handleUnselectSkill(skill)}
+                  onDelete={() => handleUnfilterSkill(skill)}
                   label={skillData.label}
                 />
               );
@@ -598,7 +616,7 @@ function ProjectCard({
                     src={`./assets/logos/${skillData.logoFileName}`}
                   ></img>
                 }
-                onClick={() => handleSelectSkill(skill)}
+                onClick={() => handleFilterSkill(skill)}
                 label={skillData.label}
                 variant="outlined"
               />
@@ -748,7 +766,7 @@ function TypesOfProjects({ handleSelectProjectType }) {
       <div className="d-flex justify-content-center flex-wrap my-3">
         <div className="d-flex flex-wrap">
           <Card
-            className="card-type-of-project"
+            className="card-type-of-project grow-on-hover"
             onClick={() => handleSelectProjectType('AI & Machine Learning')}
           >
             <Card.Img
@@ -761,7 +779,7 @@ function TypesOfProjects({ handleSelectProjectType }) {
             </Card.Body>
           </Card>
           <Card
-            className="card-type-of-project"
+            className="card-type-of-project grow-on-hover"
             onClick={() => handleSelectProjectType('Web Development')}
           >
             <Card.Img
@@ -777,7 +795,7 @@ function TypesOfProjects({ handleSelectProjectType }) {
         </div>
         <div className="d-flex flex-wrap">
           <Card
-            className="card-type-of-project"
+            className="card-type-of-project grow-on-hover"
             onClick={() => handleSelectProjectType('Power Platform')}
           >
             <Card.Img
@@ -790,7 +808,7 @@ function TypesOfProjects({ handleSelectProjectType }) {
             </Card.Body>
           </Card>
           <Card
-            className="card-type-of-project"
+            className="card-type-of-project grow-on-hover"
             onClick={() => handleSelectProjectType('Others')}
           >
             <Card.Img variant="top" src="./assets/other projects.jpg" />
@@ -831,7 +849,7 @@ function SkillsSection({ handleSelectSkill, allSkills }) {
                     <img
                       height="40px"
                       src={`./assets/logos/${logoFileName}`}
-                      className="skill-logo"
+                      className="skill-logo grow-on-hover"
                       onClick={() => handleSelectSkill(label)}
                     ></img>
                   </OverlayTrigger>
@@ -858,7 +876,7 @@ function SkillsSection({ handleSelectSkill, allSkills }) {
                     <img
                       height="40px"
                       src={`./assets/logos/${logoFileName}`}
-                      className="skill-logo"
+                      className="skill-logo grow-on-hover"
                       onClick={() => handleSelectSkill(label)}
                     ></img>
                   </OverlayTrigger>
@@ -885,7 +903,7 @@ function SkillsSection({ handleSelectSkill, allSkills }) {
                     <img
                       height="40px"
                       src={`./assets/logos/${logoFileName}`}
-                      className="skill-logo"
+                      className="skill-logo grow-on-hover"
                       onClick={() => handleSelectSkill(label)}
                     ></img>
                   </OverlayTrigger>
@@ -912,7 +930,7 @@ function SkillsSection({ handleSelectSkill, allSkills }) {
                     <img
                       height="40px"
                       src={`./assets/logos/${logoFileName}`}
-                      className="skill-logo"
+                      className="skill-logo grow-on-hover"
                       onClick={() => handleSelectSkill(label)}
                     ></img>
                   </OverlayTrigger>
@@ -929,12 +947,12 @@ function ProjectsSection({
   projects,
   projectTypes,
   filteredProjectTypes,
-  handleSelectProjectType,
-  handleUnselectProjectType,
+  handleFilterProjectType,
+  handleUnfilterProjectType,
   allSkills,
   filteredSkills,
-  handleSelectSkill,
-  handleUnselectSkill,
+  handleFilterSkill,
+  handleUnfilterSkill,
   projectsWithDetails,
   setProjectsWithDetails,
 }) {
@@ -973,7 +991,7 @@ function ProjectsSection({
           return (
             <Chip
               label={type}
-              onDelete={() => handleUnselectProjectType(type)}
+              onDelete={() => handleUnfilterProjectType(type)}
             />
           );
         })}
@@ -987,7 +1005,7 @@ function ProjectsSection({
           return (
             <Chip
               label={type}
-              onClick={() => handleSelectProjectType(type)}
+              onClick={() => handleFilterProjectType(type)}
               variant="outlined"
             />
           );
@@ -1005,8 +1023,8 @@ function ProjectsSection({
               logoFileName={skill.logoFileName}
               selected={true}
               outline={false}
-              handleSelectSkill={handleSelectSkill}
-              handleUnselectSkill={handleUnselectSkill}
+              handleFilterSkill={handleFilterSkill}
+              handleUnfilterSkill={handleUnfilterSkill}
             />
           );
         })}
@@ -1023,7 +1041,7 @@ function ProjectsSection({
               logoFileName={skill.logoFileName}
               selected={false}
               outline={true}
-              handleSelectSkill={handleSelectSkill}
+              handleFilterSkill={handleFilterSkill}
             />
           );
         })}
@@ -1040,8 +1058,8 @@ function ProjectsSection({
             setProjectsWithDetails={setProjectsWithDetails}
             projectsWithDetails={projectsWithDetails}
             allSkills={allSkills}
-            handleSelectSkill={handleSelectSkill}
-            handleUnselectSkill={handleUnselectSkill}
+            handleFilterSkill={handleFilterSkill}
+            handleUnfilterSkill={handleUnfilterSkill}
             filteredSkills={filteredSkills}
           />
         );
