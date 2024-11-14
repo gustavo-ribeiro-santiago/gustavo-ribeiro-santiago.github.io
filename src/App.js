@@ -14,7 +14,6 @@ import React, { useEffect, useState } from 'react';
 import Chip from '@mui/material/Chip';
 
 function App() {
-
   const projectTypes = [
     'AI & Machine Learning',
     'Web Development',
@@ -84,6 +83,21 @@ function App() {
       type: ['AI & Machine Learning'],
     },
     {
+      label: 'Hugging Face',
+      logoFileName: 'hugging face.png',
+      type: ['AI & Machine Learning'],
+    },
+    {
+      label: 'Spacy',
+      logoFileName: 'spacy.png',
+      type: ['AI & Machine Learning'],
+    },
+    {
+      label: 'NLTK',
+      logoFileName: 'nltk.png',
+      type: ['AI & Machine Learning'],
+    },
+    {
       label: 'React',
       logoFileName: 'react.png',
       type: ['Web Development'],
@@ -129,6 +143,11 @@ function App() {
       type: ['Web Development'],
     },
     {
+      label: 'MySQL',
+      logoFileName: 'mysql.png',
+      type: ['Web Development'],
+    },
+    {
       label: 'AWS',
       logoFileName: 'aws.png',
       type: ['AI & Machine Learning', 'Web Development'],
@@ -142,6 +161,11 @@ function App() {
       label: 'AWS S3',
       logoFileName: 'aws s3.png',
       type: ['AI & Machine Learning', 'Web Development'],
+    },
+    {
+      label: 'Firebase',
+      logoFileName: 'firebase.png',
+      type: ['Web Development'],
     },
     {
       label: 'Strapi',
@@ -227,19 +251,20 @@ function App() {
       title: 'Hacker News Stories',
       description:
         'This React application provides a user-friendly interface for exploring \
-  the Hacker News stories. Users can summarize articles with AI, filter by date \
-  and by tags, sort by different criteria, search for keywords and navigate through \
-  paginated results. The app also allows the users to view nested comments \
-  associated with each story.',
+  the Hacker News stories. Users can summarize articles with AI, bookmark articles, \
+  filter by date and by tags, sort by different criteria, search for keywords and \
+  navigate through paginated results.',
       cover: './assets/hacker news stories.png',
       type: ['AI & Machine Learning', 'Web Development'],
       skills: [
         'Python',
         'Django',
         'LangChain',
+        'MySQL',
         'Docker',
         'AWS',
         'AWS EC2',
+        'Firebase',
         'React',
         'JavaScript',
         'HTML5',
@@ -275,6 +300,36 @@ function App() {
         'https://gustavo-ribeiro-santiago.github.io/real-time-bus-tracker-rj/',
       gitHubRepository:
         'https://github.com/gustavo-ribeiro-santiago/real-time-bus-tracker-rj',
+    },
+    {
+      title: 'Yelp 1-5 Star Ratings Classifier',
+      description:
+        "This project presents a machine learning pipeline for classifying Yelp \
+        reviews into 1-5 star ratings using multiple supervised learning models. \
+        The top model, a fine-tuned RoBERTa, achieved 63% accuracy and F1 scores \
+        from 50% to 69%, which is reasonable given the difficulty of distinguishing \
+        nuanced ratings from text (e.g., 2 vs. 3 stars). Additionally, a Power BI \
+        dashboard helps visualize the models' results.",
+      cover: './assets/yelp star ratings predictions.png',
+      type: ['AI & Machine Learning', 'Power Platform'],
+      skills: [
+        'Python',
+        'Scikit-learn',
+        'Keras',
+        'Tensorflow',
+        'Hugging Face',
+        'Spacy',
+        'NLTK',
+        'Pandas',
+        'Numpy',
+        'Matplotlib',
+        'Seaborn',
+        'Power BI',
+      ],
+      websiteLink:
+        'https://colab.research.google.com/drive/1-LlGHYMmxs1I94A-L3JyftgCQtLDMI_U#scrollTo=MRqtBh44kreg',
+      gitHubRepository:
+        'https://github.com/gustavo-ribeiro-santiago/yelp_stars_prediction',
     },
     {
       title: 'Rocket Food Delivery App',
@@ -317,13 +372,14 @@ function App() {
       type: ['AI & Machine Learning'],
       skills: [
         'Python',
+        'Scikit-learn',
         'Keras',
         'Tensorflow',
-        'Scikit-learn',
         'Matplotlib',
         'Seaborn',
       ],
-      websiteLink: 'https://drive.google.com/file/d/1-OuC1f3lETQh0HIpxgw7bx3Lnr5s2bku/view?usp=sharing',
+      websiteLink:
+        'https://colab.research.google.com/drive/1-OuC1f3lETQh0HIpxgw7bx3Lnr5s2bku',
       gitHubRepository:
         'https://github.com/gustavo-ribeiro-santiago/automating-port-operations-project',
     },
@@ -558,7 +614,7 @@ function ProjectCard({
           className="project-photo grow-on-hover-1_1"
           src={project.cover}
           alt="app photo"
-          title='Visit Demo'
+          title="Visit Demo"
         ></img>
       </div>
       <div className="project-data p-2">
